@@ -103,26 +103,28 @@
 
     /* 3. HERO REFINEMENTS (Logo & Glow) */
     .logo-glow-wrapper {
-        margin-bottom: 30px !important;
-        width: 120px !important;
-        height: 120px !important;
-        min-width: 120px !important;
-        min-height: 120px !important;
-        max-width: 120px !important;
-        max-height: 120px !important;
+        margin: 0 auto 30px auto !important;
+        /* Center horizontally */
+        width: 130px !important;
+        height: 130px !important;
+        min-width: 130px !important;
+        min-height: 130px !important;
         border-radius: 50% !important;
         box-shadow: 0 0 50px rgba(157, 0, 255, 0.4) !important;
         border: 1px solid rgba(157, 0, 255, 0.2) !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        background: rgba(15, 5, 25, 0.6) !important;
+        background: rgba(10, 5, 20, 0.8) !important;
+        /* Dark solid circle base */
         overflow: hidden !important;
         position: relative !important;
-        flex-shrink: 0 !important;
-        /* Prevents stretching in flex container */
+        animation: none !important;
+        /* KILL desktop float animation */
         transform: none !important;
-        /* Removes any ghost transforms */
+        visibility: visible !important;
+        opacity: 1 !important;
+        flex-shrink: 0 !important;
     }
 
     .logo-glow-wrapper::before {
@@ -133,19 +135,23 @@
         width: 100% !important;
         height: 100% !important;
         border-radius: 50% !important;
-        filter: blur(20px) !important;
+        filter: blur(25px) !important;
         opacity: 0.9 !important;
         background: radial-gradient(circle, var(--accent-violet) 0%, transparent 80%) !important;
-        z-index: -1;
+        z-index: -1 !important;
+        animation: none !important;
+        /* KILL rogue pulse animation */
+        transform: none !important;
     }
 
     .big-hero-logo {
         width: 100px !important;
-        /* Slightly smaller than wrapper to avoid edge artifacts */
         height: 100px !important;
         object-fit: contain !important;
-        border-radius: 50% !important;
         mix-blend-mode: screen;
+        position: relative !important;
+        z-index: 2 !important;
+        border-radius: 0 !important;
     }
 
     h1 {
