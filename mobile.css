@@ -175,8 +175,11 @@
     .services-grid,
     .calc-grid {
         display: grid !important;
-        gap: 10px !important;
+        gap: 8px !important;
         width: 100% !important;
+        padding: 0 5px !important;
+        /* Tiny side padding to prevent edge touching */
+        box-sizing: border-box !important;
     }
 
     .process-container,
@@ -207,58 +210,70 @@
     .calc-option,
     .process-step {
         width: 100% !important;
+        aspect-ratio: 1 / 1 !important;
+        /* FORCE SQUARE SHAPE */
         margin-bottom: 0 !important;
-        background: rgba(255, 255, 255, 0.03) !important;
-        backdrop-filter: blur(5px);
-        border: 1px solid rgba(255, 255, 255, 0.05) !important;
-        border-radius: 12px !important;
-        /* Smaller radius for smaller cards */
-        padding: 12px 8px !important;
-        /* Tight padding for narrow columns */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        background: rgba(255, 255, 255, 0.05) !important;
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 8px !important;
+        /* Sharper rounded corners for square feel */
+        padding: 5px !important;
+        /* Minimal padding for square fit */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
         text-align: center;
+        overflow: hidden !important;
     }
 
     /* Shrink text and icons for multi-column layout */
+    /* Ultra-compact text for 3-column squares */
     .stat-number {
-        font-size: 1.2rem !important;
+        font-size: 1rem !important;
+        font-weight: bold;
     }
 
     .stat-card p {
-        font-size: 0.6rem !important;
-        line-height: 1.1;
+        font-size: 0.5rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
 
     .process-step h3,
-    .service-item h3 {
-        font-size: 0.7rem !important;
-        margin-bottom: 5px;
+    .service-item h3,
+    .option-card h4 {
+        font-size: 0.55rem !important;
+        line-height: 1.1 !important;
+        margin: 0 !important;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .process-step i,
+    .service-item i,
+    .option-card i {
+        font-size: 1rem !important;
+        margin-bottom: 3px !important;
     }
 
     .process-step p,
-    .service-item p {
+    .service-item p,
+    .option-card p {
         display: none !important;
-        /* Hide long text on mobile row view */
     }
 
     .step-number {
-        font-size: 1rem !important;
-        margin-bottom: 5px;
-    }
-
-    .option-card h4 {
-        font-size: 0.65rem !important;
-    }
-
-    .option-card p {
-        display: none !important;
-        /* Hide descriptions to fit row */
+        font-size: 0.8rem !important;
+        margin-bottom: 2px !important;
     }
 
     .option-card .price {
-        font-size: 0.7rem !important;
+        font-size: 0.6rem !important;
+        margin-top: 2px !important;
     }
 
     .calc-result {
