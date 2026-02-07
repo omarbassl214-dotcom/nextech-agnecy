@@ -1,34 +1,40 @@
-/* NexTech Mobile-Specific Styles */
+/* NexTech Mobile-Specific Styles (High-Visibility Version) */
 
 @media (max-width: 768px) {
 
-    /* Slimmer Navigation Bar */
+    /* Slim Navigation */
     nav {
-        padding: 20px 0 !important;
+        padding: 15px 0 !important;
         background: transparent !important;
         backdrop-filter: none !important;
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999 !important;
     }
 
     .nav-links {
         background: rgba(10, 5, 25, 0.95) !important;
         border: 1px solid rgba(157, 0, 255, 0.2);
         gap: 6px 12px;
-        padding: 10px 18px;
+        padding: 8px 16px;
         flex-wrap: wrap;
         justify-content: center;
         border-radius: 50px;
         width: fit-content;
-        max-width: 90%;
+        max-width: 95%;
         margin: 0 auto;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(10px);
     }
 
     .nav-links a {
         font-size: 0.55rem;
         padding: 2px 0;
-        letter-spacing: 0.8px;
-        color: #ddd !important;
+        letter-spacing: 0.5px;
+        color: #fff !important;
+        text-transform: uppercase;
     }
 
     .btn-nav {
@@ -36,163 +42,135 @@
         font-weight: 700 !important;
     }
 
-    /* Restoration of Animated Background */
-    section,
-    .section,
-    header.hero {
-        position: relative !important;
-        display: block !important;
-        width: 100% !important;
+    /* EMERGENCY CONTENT VISIBILITY (Restore Missing Content) */
+    html,
+    body {
+        overflow-x: hidden !important;
         height: auto !important;
-        min-height: auto !important;
-        overflow: visible !important;
-        background: transparent !important;
-        /* REVEAL GALAXY BACKGROUND */
-        z-index: 1 !important;
     }
 
-    /* Add a semi-transparent layer if needed for readability */
-    .bg-dark {
-        background: rgba(11, 13, 16, 0.6) !important;
-        backdrop-filter: blur(5px);
+    section,
+    .section,
+    header.hero,
+    footer,
+    .reveal {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        position: relative !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding-left: 5% !important;
+        padding-right: 5% !important;
     }
 
     header.hero {
         min-height: 100vh !important;
-        padding-top: 220px !important;
-        padding-bottom: 60px;
+        padding-top: 180px !important;
+        /* Space for the floating nav */
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
         align-items: center !important;
+        text-align: center;
     }
 
-    /* Logo Glow Refinement - Making it fit the rounded logo */
+    /* Logo & Glow Fixes */
     .logo-glow-wrapper {
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         border-radius: 40px !important;
-        /* Match logo rounding */
-        box-shadow: 0 0 30px rgba(157, 0, 255, 0.3) !important;
-        /* Soft glow */
-        overflow: visible !important;
-    }
-
-    .logo-glow-wrapper::before {
-        width: 100% !important;
-        height: 100% !important;
-        top: 0 !important;
-        left: 0 !important;
-        transform: none !important;
-        border-radius: 40px !important;
-        /* Match logo rounding */
-        filter: blur(25px) !important;
-        background: radial-gradient(circle, var(--accent-violet) 0%, rgba(123, 66, 188, 0) 80%) !important;
+        box-shadow: 0 0 25px rgba(157, 0, 255, 0.4) !important;
     }
 
     .big-hero-logo {
-        width: 140px;
+        width: 120px !important;
+        /* Slimmer logo for slimmer nav */
         border-radius: 40px;
-        /* Ensure logo itself is rounded */
     }
 
     h1 {
-        font-size: 1.9rem !important;
+        font-size: 1.8rem !important;
         line-height: 1.2;
         margin-bottom: 15px;
+        text-shadow: 0 0 15px rgba(157, 0, 255, 0.5);
     }
 
     .hero-sub {
-        font-size: 0.9rem;
-        margin-bottom: 30px;
+        font-size: 0.85rem;
+        margin-bottom: 20px;
         max-width: 90%;
-        color: #aaa;
+        color: #ccc;
     }
 
-    /* Force visibility for scroll reveals on mobile */
-    .reveal {
-        opacity: 1 !important;
-        transform: none !important;
-        filter: none !important;
-        transition: none !important;
-        visibility: visible !important;
-    }
-
-    /* Layout Grids */
+    /* Grid & Layout Fixes (Stack everything) */
     .process-container,
     .portfolio-grid,
     .contact-box,
     .form-row,
     .services-grid,
     .calc-grid,
-    .dashboard-grid {
+    .dashboard-grid,
+    .calculator-container {
         display: flex !important;
         flex-direction: column !important;
         gap: 20px !important;
+        width: 100% !important;
     }
 
     .stat-card,
     .service-item,
     .project-card,
-    .calc-option {
+    .calc-option,
+    .process-step {
         width: 100% !important;
-        height: auto !important;
-        margin-bottom: 10px;
+        margin-bottom: 15px !important;
+    }
+
+    .project-image {
+        height: 250px !important;
     }
 
     .calc-result {
         position: static !important;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
-    /* Section Spacing */
-    .section {
-        padding: 80px 5% !important;
-    }
-
-    .section-header {
-        margin-bottom: 40px !important;
-    }
-
-    .section-title {
-        font-size: 1.8rem !important;
-        padding-left: 15px !important;
-    }
-
-    /* Health Check Widget on Mobile */
-    .health-check-widget {
-        width: 100%;
-        margin: 20px auto !important;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.05) !important;
-        border-radius: 15px;
-        border: 1px solid rgba(157, 0, 255, 0.2);
-    }
-
-    /* Dashboard Stats */
-    .stat-card {
-        padding: 30px;
-    }
-
-    .stat-number {
-        font-size: 2.8rem;
-    }
-
-    /* --- Mobile Glow Optimization (Ambient) --- */
+    /* Ambient Background Glows */
     body::before,
     body::after {
-        width: 120vw !important;
-        height: 120vw !important;
-        filter: blur(80px) !important;
+        content: '';
+        position: fixed !important;
+        width: 100vw !important;
+        height: 100vw !important;
+        filter: blur(60px) !important;
         opacity: 0.3 !important;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    body::after {
+        top: -10% !important;
+        left: -20% !important;
     }
 
     body::before {
-        bottom: -30% !important;
+        bottom: -10% !important;
         right: -20% !important;
     }
 
-    body::after {
-        top: -15% !important;
-        left: -20% !important;
+    /* Health Check Widget */
+    .health-check-widget {
+        width: 100%;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-radius: 12px;
+        border: 1px solid rgba(157, 0, 255, 0.3);
+    }
+
+    .stat-number {
+        font-size: 2.2rem;
     }
 }
