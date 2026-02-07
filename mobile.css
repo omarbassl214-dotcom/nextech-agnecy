@@ -54,6 +54,11 @@
     body {
         overflow-x: hidden !important;
         height: auto !important;
+        background: transparent !important;
+    }
+
+    /* Base background for the whole page */
+    html {
         background: var(--bg-deep) !important;
     }
 
@@ -172,7 +177,21 @@
         padding: 30px !important;
     }
 
-    /* 5. AMBIENT GLOWS (Keep the galaxy feel but stay slim) */
+    /* 5. AMBIENT GLOWS & BACKGROUND (Keep the galaxy feel but stay slim) */
+    #galaxy-bg,
+    .star-field,
+    .nebula-waves,
+    .galaxy-overlay {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 0.4 !important;
+        /* Slightly more visible on mobile than base */
+    }
+
+    .star-field-near {
+        opacity: 0.6 !important;
+    }
+
     body::before,
     body::after {
         content: '';
