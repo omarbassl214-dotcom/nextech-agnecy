@@ -66,8 +66,7 @@
     section,
     .section,
     header.hero,
-    footer,
-    .reveal {
+    footer {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
@@ -78,11 +77,17 @@
         min-height: auto !important;
         margin: 0 !important;
         padding: 80px 6% !important;
-        /* Healthy spacing between sections */
         background: transparent !important;
-        /* Shows the stars/galaxy background */
         z-index: 10 !important;
         overflow: visible !important;
+    }
+
+    /* Target reveal animations separately to avoid breaking layout elements like the logo wrapper */
+    .reveal:not(.logo-glow-wrapper) {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        visibility: visible !important;
     }
 
     header.hero {
@@ -98,22 +103,29 @@
 
     /* 3. HERO REFINEMENTS (Logo & Glow) */
     .logo-glow-wrapper {
-        margin-bottom: 25px;
-        border-radius: 40px !important;
-        /* Matches logo corners */
-        box-shadow: 0 0 30px rgba(157, 0, 255, 0.4) !important;
-        width: 130px;
-        height: 130px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        margin-bottom: 30px;
+        border-radius: 50% !important;
+        /* Perfect circle */
+        box-shadow: 0 0 40px rgba(157, 0, 255, 0.5) !important;
+        border: 1px solid rgba(157, 0, 255, 0.3) !important;
+        width: 120px !important;
+        height: 120px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background: rgba(45, 10, 80, 0.4) !important;
+        /* Subtle inner purple tint to hide logo edges */
+        overflow: hidden;
+        position: relative !important;
     }
 
     .logo-glow-wrapper::before {
-        border-radius: 40px !important;
-        /* IMPORTANT: Fixes the square glow */
-        filter: blur(20px) !important;
-        opacity: 0.7 !important;
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 50% !important;
+        filter: blur(25px) !important;
+        opacity: 0.8 !important;
+        background: radial-gradient(circle, var(--accent-violet) 0%, transparent 70%) !important;
     }
 
     .big-hero-logo {
@@ -184,12 +196,21 @@
     .galaxy-overlay {
         display: block !important;
         visibility: visible !important;
-        opacity: 0.4 !important;
-        /* Slightly more visible on mobile than base */
+        opacity: 0.6 !important;
+        /* Enhanced for mobile */
+    }
+
+    #galaxy-bg {
+        background-size: cover !important;
+        /* Ensure it fills the screen */
+        opacity: 0.3 !important;
+        animation-duration: 180s !important;
+        /* Slower drift for mobile performance */
     }
 
     .star-field-near {
-        opacity: 0.6 !important;
+        opacity: 0.8 !important;
+        /* Brighter stars */
     }
 
     body::before,
