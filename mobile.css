@@ -5,8 +5,9 @@
     /* Navigation - Reducing the "Crowded" feel */
     nav {
         padding: 5px 2% !important;
-        background: rgba(18, 10, 31, 1) !important;
-        /* Solid background to prevent see-through overlap */
+        background: rgba(18, 10, 31, 0.85) !important;
+        /* Semi-transparent indigo, not pitch black */
+        backdrop-filter: blur(10px);
     }
 
     .nav-links {
@@ -29,7 +30,7 @@
         border-bottom: 1px solid var(--accent-violet) !important;
     }
 
-    /* Prevent sections from overlapping - Force Block Stack */
+    /* Restoration of Animated Background */
     section,
     .section,
     header.hero {
@@ -39,18 +40,20 @@
         height: auto !important;
         min-height: auto !important;
         overflow: visible !important;
-        top: auto !important;
-        left: auto !important;
-        margin: 0 !important;
+        background: transparent !important;
+        /* REVEAL GALAXY BACKGROUND */
         z-index: 1 !important;
-        background: var(--bg-deep) !important;
-        /* Give sections a background to hide what's behind them */
+    }
+
+    /* Add a semi-transparent layer if needed for readability */
+    .bg-dark {
+        background: rgba(11, 13, 16, 0.6) !important;
+        backdrop-filter: blur(5px);
     }
 
     header.hero {
         min-height: 100vh !important;
         padding-top: 220px !important;
-        /* Space for wrapped navigation */
         padding-bottom: 60px;
         display: flex !important;
         flex-direction: column !important;
@@ -58,12 +61,32 @@
         align-items: center !important;
     }
 
+    /* Logo Glow Refinement - Making it fit the rounded logo */
     .logo-glow-wrapper {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+        border-radius: 40px !important;
+        /* Match logo rounding */
+        box-shadow: 0 0 30px rgba(157, 0, 255, 0.3) !important;
+        /* Soft glow */
+        overflow: visible !important;
+    }
+
+    .logo-glow-wrapper::before {
+        width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        border-radius: 40px !important;
+        /* Match logo rounding */
+        filter: blur(25px) !important;
+        background: radial-gradient(circle, var(--accent-violet) 0%, rgba(123, 66, 188, 0) 80%) !important;
     }
 
     .big-hero-logo {
         width: 140px;
+        border-radius: 40px;
+        /* Ensure logo itself is rounded */
     }
 
     h1 {
@@ -136,6 +159,7 @@
         padding: 20px;
         background: rgba(255, 255, 255, 0.05) !important;
         border-radius: 15px;
+        border: 1px solid rgba(157, 0, 255, 0.2);
     }
 
     /* Dashboard Stats */
@@ -147,23 +171,22 @@
         font-size: 2.8rem;
     }
 
-    /* --- Mobile Glow Optimization --- */
+    /* --- Mobile Glow Optimization (Ambient) --- */
     body::before,
     body::after {
-        width: 100vw !important;
-        height: 100vw !important;
-        filter: blur(60px) !important;
-        opacity: 0.4 !important;
-        /* Subdued for mobile performance */
+        width: 120vw !important;
+        height: 120vw !important;
+        filter: blur(80px) !important;
+        opacity: 0.3 !important;
     }
 
     body::before {
-        bottom: -20% !important;
+        bottom: -30% !important;
         right: -20% !important;
     }
 
     body::after {
-        top: -10% !important;
-        left: -10% !important;
+        top: -15% !important;
+        left: -20% !important;
     }
 }
