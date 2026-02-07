@@ -5,22 +5,23 @@
     /* Navigation - Reducing the "Crowded" feel */
     nav {
         padding: 5px 2% !important;
-        /* Even tighter for mobile */
+        background: rgba(18, 10, 31, 1) !important;
+        /* Solid background to prevent see-through overlap */
     }
 
     .nav-links {
-        gap: 6px;
-        padding: 6px 10px;
+        gap: 8px;
+        padding: 8px;
         flex-wrap: wrap;
         justify-content: center;
         border-radius: 12px;
-        width: 98%;
+        width: 100%;
         margin: 0 auto;
     }
 
     .nav-links a {
-        font-size: 0.6rem;
-        padding: 2px 4px;
+        font-size: 0.65rem;
+        padding: 4px 6px;
         letter-spacing: 0.5px;
     }
 
@@ -28,12 +29,28 @@
         border-bottom: 1px solid var(--accent-violet) !important;
     }
 
-    /* Hero Section Refinement */
-    .hero {
+    /* Prevent sections from overlapping - Force Block Stack */
+    section,
+    .section,
+    header.hero {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
         height: auto !important;
-        min-height: 100vh;
-        padding-top: 180px !important;
-        /* Adjusted to be enough for small nav but not too much */
+        min-height: auto !important;
+        overflow: visible !important;
+        top: auto !important;
+        left: auto !important;
+        margin: 0 !important;
+        z-index: 1 !important;
+        background: var(--bg-deep) !important;
+        /* Give sections a background to hide what's behind them */
+    }
+
+    header.hero {
+        min-height: 100vh !important;
+        padding-top: 220px !important;
+        /* Space for wrapped navigation */
         padding-bottom: 60px;
         display: flex !important;
         flex-direction: column !important;
@@ -43,41 +60,32 @@
 
     .logo-glow-wrapper {
         margin-bottom: 20px;
-        box-shadow: 0 0 20px rgba(207, 0, 255, 0.3);
     }
 
     .big-hero-logo {
-        width: 130px;
-        /* Even smaller to make room */
+        width: 140px;
     }
 
     h1 {
-        font-size: 1.8rem !important;
-        /* Scaled down further to avoid crowding */
-        line-height: 1.1;
+        font-size: 1.9rem !important;
+        line-height: 1.2;
         margin-bottom: 15px;
     }
 
     .hero-sub {
-        font-size: 0.85rem;
-        margin-bottom: 25px;
-        max-width: 95%;
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+        max-width: 90%;
         color: #aaa;
     }
 
-    /* Health Check Widget on Mobile */
-    .health-check-widget {
-        width: 100%;
-        margin: 20px auto !important;
-        padding: 15px;
-    }
-
-    .health-check-widget label {
-        font-size: 0.8rem;
-    }
-
-    .health-check-widget input {
-        font-size: 0.8rem;
+    /* Force visibility for scroll reveals on mobile */
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+        visibility: visible !important;
     }
 
     /* Layout Grids */
@@ -88,8 +96,18 @@
     .services-grid,
     .calc-grid,
     .dashboard-grid {
-        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
         gap: 20px !important;
+    }
+
+    .stat-card,
+    .service-item,
+    .project-card,
+    .calc-option {
+        width: 100% !important;
+        height: auto !important;
+        margin-bottom: 10px;
     }
 
     .calc-result {
@@ -99,11 +117,11 @@
 
     /* Section Spacing */
     .section {
-        padding: 60px 5% !important;
+        padding: 80px 5% !important;
     }
 
     .section-header {
-        margin-bottom: 30px !important;
+        margin-bottom: 40px !important;
     }
 
     .section-title {
@@ -111,20 +129,41 @@
         padding-left: 15px !important;
     }
 
-    /* Force visibility for scroll reveals on mobile */
-    .reveal {
-        opacity: 1 !important;
-        transform: none !important;
-        filter: none !important;
-        transition: none !important;
+    /* Health Check Widget on Mobile */
+    .health-check-widget {
+        width: 100%;
+        margin: 20px auto !important;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-radius: 15px;
     }
 
     /* Dashboard Stats */
     .stat-card {
-        padding: 20px;
+        padding: 30px;
     }
 
     .stat-number {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
+    }
+
+    /* --- Mobile Glow Optimization --- */
+    body::before,
+    body::after {
+        width: 100vw !important;
+        height: 100vw !important;
+        filter: blur(60px) !important;
+        opacity: 0.4 !important;
+        /* Subdued for mobile performance */
+    }
+
+    body::before {
+        bottom: -20% !important;
+        right: -20% !important;
+    }
+
+    body::after {
+        top: -10% !important;
+        left: -10% !important;
     }
 }
