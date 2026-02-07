@@ -111,18 +111,17 @@
         border-radius: 50px !important;
         /* Matches PC border-radius exactly */
         box-shadow: none !important;
-        /* REMOVED: This was causing the square glow */
-        border: 1px solid rgba(157, 0, 255, 0.15) !important;
+        border: 1px solid rgba(157, 0, 255, 0.2) !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
         background: #000 !important;
-        /* Matches PC black background */
+        /* Solid black base blocks glow from behind */
         overflow: visible !important;
         position: relative !important;
         animation: floatLogo 6s ease-in-out infinite !important;
         flex-shrink: 0 !important;
-        z-index: 5 !important;
+        z-index: 10 !important;
     }
 
     .logo-glow-wrapper::before {
@@ -131,15 +130,14 @@
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
-        width: 220px !important;
-        /* Large true circle */
-        height: 220px !important;
+        width: 240px !important;
+        height: 240px !important;
         border-radius: 50% !important;
-        filter: blur(40px) !important;
-        /* Very soft bleed */
+        filter: blur(45px) !important;
         opacity: 0.6 !important;
-        background: radial-gradient(circle, var(--accent-violet) 0%, transparent 75%) !important;
+        background: radial-gradient(circle, var(--accent-violet) 0%, transparent 80%) !important;
         z-index: -1 !important;
+        /* Strictly behind the black wrapper background */
         animation: pulseLogoGlow 4s ease-in-out infinite alternate !important;
     }
 
@@ -147,18 +145,21 @@
         width: 140px !important;
         height: 140px !important;
         object-fit: contain !important;
-        mix-blend-mode: screen;
+        mix-blend-mode: normal !important;
+        /* REVERT: No more tinting */
         position: relative !important;
-        z-index: 2 !important;
+        z-index: 5 !important;
         border-radius: 40px !important;
     }
 
     h1 {
         font-size: 1.8rem !important;
         line-height: 1.2;
-        margin-bottom: 15px;
+        margin-bottom: 25px !important;
         color: #fff !important;
         text-shadow: 0 0 15px rgba(157, 0, 255, 0.6);
+        position: relative !important;
+        z-index: 15 !important;
     }
 
     .hero-sub {
