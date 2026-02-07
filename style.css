@@ -1132,44 +1132,6 @@ footer {
     line-height: 1.6;
 }
 
-/* Responsive Overrides */
-@media (max-width: 768px) {
-    .process-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 3rem;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-box {
-        padding: 40px 20px;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-form {
-        padding: 30px;
-    }
-
-    .calc-grid {
-        grid-template-columns: 1fr !important;
-    }
-
-    .calc-result {
-        position: static !important;
-        margin-top: 30px;
-    }
-}
 
 /* --- Power Features Styles --- */
 
