@@ -171,17 +171,34 @@
 
     /* 4. GRID STACKING (Process, Portfolio, Services, Stats) */
     .process-container,
-    .portfolio-grid,
-    .contact-box,
-    .form-row,
-    .services-grid,
-    .calc-grid,
     .dashboard-grid,
+    .services-grid,
+    .calc-grid {
+        display: grid !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    .process-container,
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        /* One row for stats */
+    }
+
+    .calc-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        /* 3x2 as requested */
+    }
+
+    .portfolio-grid,
     .calculator-container {
         display: flex !important;
         flex-direction: column !important;
-        gap: 25px !important;
-        width: 100% !important;
+        gap: 20px !important;
     }
 
     .stat-card,
@@ -192,15 +209,56 @@
         width: 100% !important;
         margin-bottom: 0 !important;
         background: rgba(255, 255, 255, 0.03) !important;
-        /* Subtle glass layer */
         backdrop-filter: blur(5px);
         border: 1px solid rgba(255, 255, 255, 0.05) !important;
-        border-radius: 20px;
-        padding: 30px !important;
+        border-radius: 12px !important;
+        /* Smaller radius for smaller cards */
+        padding: 12px 8px !important;
+        /* Tight padding for narrow columns */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
-    .project-image {
-        height: 220px !important;
+    /* Shrink text and icons for multi-column layout */
+    .stat-number {
+        font-size: 1.2rem !important;
+    }
+
+    .stat-card p {
+        font-size: 0.6rem !important;
+        line-height: 1.1;
+    }
+
+    .process-step h3,
+    .service-item h3 {
+        font-size: 0.7rem !important;
+        margin-bottom: 5px;
+    }
+
+    .process-step p,
+    .service-item p {
+        display: none !important;
+        /* Hide long text on mobile row view */
+    }
+
+    .step-number {
+        font-size: 1rem !important;
+        margin-bottom: 5px;
+    }
+
+    .option-card h4 {
+        font-size: 0.65rem !important;
+    }
+
+    .option-card p {
+        display: none !important;
+        /* Hide descriptions to fit row */
+    }
+
+    .option-card .price {
+        font-size: 0.7rem !important;
     }
 
     .calc-result {
@@ -264,15 +322,6 @@
         border: 1px solid rgba(157, 0, 255, 0.3);
     }
 
-    /* Dashboard Stats Adjustments */
-    .stat-number {
-        font-size: 2.2rem;
-        margin-bottom: 5px;
-    }
-
-    .stat-card p {
-        font-size: 0.85rem;
-    }
 
     /* Footer Fix */
     footer {
