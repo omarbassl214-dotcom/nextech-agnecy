@@ -222,19 +222,23 @@
     /* Swipe Cards Styling */
     .process-step,
     .service-item {
-        flex: 0 0 280px !important;
-        /* Large readable width */
-        min-width: 280px !important;
+        flex: 0 0 260px !important;
+        /* Slightly narrower */
+        min-width: 260px !important;
         scroll-snap-align: center !important;
         background: rgba(255, 255, 255, 0.04) !important;
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        border-radius: 20px !important;
-        padding: 25px !important;
+        border-radius: 35px !important;
+        /* Softer corners */
+        padding: 45px 25px !important;
+        /* Taller padding */
         display: flex !important;
         flex-direction: column !important;
-        align-items: flex-start !important;
-        text-align: left !important;
+        align-items: center !important;
+        /* Centered */
+        text-align: center !important;
+        /* Centered */
         transition: transform 0.3s ease;
     }
 
@@ -301,10 +305,10 @@
     }
 
     .step-number {
-        font-size: 1rem !important;
+        font-size: 1.1rem !important;
         font-weight: bold;
         color: var(--accent-secondary);
-        margin-bottom: 8px !important;
+        margin-bottom: 12px !important;
     }
 
     .option-card h4 {

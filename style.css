@@ -643,8 +643,10 @@ nav {
 /* Services Grid */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
     gap: 40px;
+    justify-content: center;
+    /* Center the grid items */
 }
 
 /* Hero Buttons */
@@ -680,11 +682,19 @@ nav {
 .service-item {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
-    padding: 40px;
+    padding: 60px 40px;
+    /* Increased vertical padding */
     border: 1px solid var(--glass-border);
     transition: 0.3s;
-    border-radius: 25px;
-    /* Increased rounding */
+    border-radius: 40px;
+    /* Softer corners */
+    text-align: center;
+    /* Center text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 380px;
+    margin: 0 auto;
 }
 
 .service-item:hover {
@@ -713,18 +723,15 @@ nav {
 }
 
 .service-list li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     position: relative;
-    padding-left: 20px;
-    color: #888;
-    font-size: 0.9rem;
+    padding-left: 0;
+    color: #ccc;
+    font-size: 0.95rem;
 }
 
 .service-list li::before {
-    content: '>';
-    position: absolute;
-    left: 0;
-    color: var(--accent-violet);
+    content: none;
 }
 
 /* Contact Form */
@@ -1088,19 +1095,26 @@ footer {
 /* Process Section */
 .process-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+    gap: 40px;
     margin-top: 50px;
+    justify-content: center;
 }
 
 .process-step {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
-    padding: 40px;
-    border-radius: 30px;
+    padding: 60px 40px;
+    /* Increased padding */
+    border-radius: 40px;
+    /* Softer corners */
     position: relative;
     transition: 0.4s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .process-step:hover {
@@ -1161,12 +1175,11 @@ footer {
 
 .stat-card {
     background: #0f1115;
-    padding: 30px;
+    padding: 40px 20px;
     border: 1px solid #1f2228;
     position: relative;
     overflow: hidden;
-    border-radius: 20px;
-    /* Added rounding */
+    border-radius: 30px;
 }
 
 .stat-number {
