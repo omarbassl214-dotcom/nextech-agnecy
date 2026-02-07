@@ -1,8 +1,11 @@
-/* NexTech Mobile-Specific Styles (High-Visibility Version) */
+/* 
+   NexTech Ultimate Mobile Fix 
+   Goal: Zero Overlaps, 100% Visibility, Slim Premium Nav
+*/
 
 @media (max-width: 768px) {
 
-    /* Slim Navigation */
+    /* 1. SLIM & NARROW NAVIGATION */
     nav {
         padding: 15px 0 !important;
         background: transparent !important;
@@ -11,22 +14,25 @@
         top: 0;
         left: 0;
         width: 100%;
+        display: flex !important;
+        justify-content: center !important;
         z-index: 9999 !important;
     }
 
     .nav-links {
         background: rgba(10, 5, 25, 0.95) !important;
-        border: 1px solid rgba(157, 0, 255, 0.2);
+        border: 1px solid rgba(157, 0, 255, 0.3);
         gap: 6px 12px;
-        padding: 8px 16px;
+        padding: 8px 18px;
         flex-wrap: wrap;
         justify-content: center;
         border-radius: 50px;
+        /* Pill Shape */
         width: fit-content;
         max-width: 95%;
-        margin: 0 auto;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(12px);
+        pointer-events: auto !important;
     }
 
     .nav-links a {
@@ -39,16 +45,19 @@
 
     .btn-nav {
         border-bottom: 2px solid var(--accent-violet) !important;
-        font-weight: 700 !important;
+        font-weight: 700;
+        color: var(--accent-violet) !important;
     }
 
-    /* EMERGENCY CONTENT VISIBILITY (Restore Missing Content) */
+    /* 2. EMERGENCY VISIBILITY & STACKING (Fixes Missing Content & Overlaps) */
     html,
     body {
         overflow-x: hidden !important;
         height: auto !important;
+        background: var(--bg-deep) !important;
     }
 
+    /* Force all sections to be visible, relative, and stacked */
     section,
     .section,
     header.hero,
@@ -63,14 +72,18 @@
         height: auto !important;
         min-height: auto !important;
         margin: 0 !important;
-        padding-left: 5% !important;
-        padding-right: 5% !important;
+        padding: 80px 6% !important;
+        /* Healthy spacing between sections */
+        background: transparent !important;
+        /* Shows the stars/galaxy background */
+        z-index: 10 !important;
+        overflow: visible !important;
     }
 
     header.hero {
         min-height: 100vh !important;
         padding-top: 180px !important;
-        /* Space for the floating nav */
+        /* Space for the floating pill nav */
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
@@ -78,16 +91,29 @@
         text-align: center;
     }
 
-    /* Logo & Glow Fixes */
+    /* 3. HERO REFINEMENTS (Logo & Glow) */
     .logo-glow-wrapper {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
         border-radius: 40px !important;
-        box-shadow: 0 0 25px rgba(157, 0, 255, 0.4) !important;
+        /* Matches logo corners */
+        box-shadow: 0 0 30px rgba(157, 0, 255, 0.4) !important;
+        width: 130px;
+        height: 130px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-glow-wrapper::before {
+        border-radius: 40px !important;
+        /* IMPORTANT: Fixes the square glow */
+        filter: blur(20px) !important;
+        opacity: 0.7 !important;
     }
 
     .big-hero-logo {
-        width: 120px !important;
-        /* Slimmer logo for slimmer nav */
+        width: 100% !important;
+        height: auto !important;
         border-radius: 40px;
     }
 
@@ -95,17 +121,18 @@
         font-size: 1.8rem !important;
         line-height: 1.2;
         margin-bottom: 15px;
-        text-shadow: 0 0 15px rgba(157, 0, 255, 0.5);
+        color: #fff !important;
+        text-shadow: 0 0 15px rgba(157, 0, 255, 0.6);
     }
 
     .hero-sub {
         font-size: 0.85rem;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         max-width: 90%;
         color: #ccc;
     }
 
-    /* Grid & Layout Fixes (Stack everything) */
+    /* 4. GRID STACKING (Process, Portfolio, Services, Stats) */
     .process-container,
     .portfolio-grid,
     .contact-box,
@@ -116,7 +143,7 @@
     .calculator-container {
         display: flex !important;
         flex-direction: column !important;
-        gap: 20px !important;
+        gap: 25px !important;
         width: 100% !important;
     }
 
@@ -126,51 +153,71 @@
     .calc-option,
     .process-step {
         width: 100% !important;
-        margin-bottom: 15px !important;
+        margin-bottom: 0 !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        /* Subtle glass layer */
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        border-radius: 20px;
+        padding: 30px !important;
     }
 
     .project-image {
-        height: 250px !important;
+        height: 220px !important;
     }
 
     .calc-result {
         position: static !important;
-        margin-top: 20px;
+        margin-top: 10px;
+        padding: 30px !important;
     }
 
-    /* Ambient Background Glows */
+    /* 5. AMBIENT GLOWS (Keep the galaxy feel but stay slim) */
     body::before,
     body::after {
         content: '';
         position: fixed !important;
         width: 100vw !important;
         height: 100vw !important;
-        filter: blur(60px) !important;
-        opacity: 0.3 !important;
+        filter: blur(80px) !important;
+        opacity: 0.25 !important;
         pointer-events: none;
         z-index: -1;
     }
 
     body::after {
         top: -10% !important;
-        left: -20% !important;
+        left: -10% !important;
     }
 
     body::before {
         bottom: -10% !important;
-        right: -20% !important;
+        right: -10% !important;
     }
 
     /* Health Check Widget */
     .health-check-widget {
         width: 100%;
-        padding: 15px;
+        padding: 20px;
         background: rgba(255, 255, 255, 0.05) !important;
-        border-radius: 12px;
+        border-radius: 15px;
         border: 1px solid rgba(157, 0, 255, 0.3);
     }
 
+    /* Dashboard Stats Adjustments */
     .stat-number {
         font-size: 2.2rem;
+        margin-bottom: 5px;
+    }
+
+    .stat-card p {
+        font-size: 0.85rem;
+    }
+
+    /* Footer Fix */
+    footer {
+        padding: 40px 10% !important;
+        font-size: 0.75rem;
+        background: #000 !important;
     }
 }

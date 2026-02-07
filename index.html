@@ -14,12 +14,13 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@400;500;700&display=swap"
         rel="stylesheet">
 
+    <!-- CSS Links - Essential for synchronization -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 768px)">
 </head>
 
 <body>
-    <!-- Cinematic Intro Overlay (Option 3: Digital Constellation) -->
+    <!-- Cinematic Intro Overlay -->
     <div id="intro-overlay">
         <div class="constellation-container">
             <div class="node n1"></div>
@@ -46,7 +47,6 @@
 
     <!-- Navigation -->
     <nav>
-
         <div class="nav-links">
             <a href="#services">Solutions</a>
             <a href="#inventory">Inventory</a>
@@ -82,9 +82,6 @@
         </div>
     </header>
 
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
-
     <!-- Process Section -->
     <section id="process" class="section">
         <div class="section-header">
@@ -94,21 +91,16 @@
         </div>
 
         <div class="process-container">
-            <!-- Step 1 -->
             <div class="process-step reveal delay-1">
                 <div class="step-number">01</div>
                 <h3>Free Consulting</h3>
                 <p>We analyze your project goals and provide a strategic structural blueprint for your success.</p>
             </div>
-
-            <!-- Step 2 -->
             <div class="process-step reveal delay-2">
                 <div class="step-number">02</div>
                 <h3>Building the Website</h3>
                 <p>Our engineers craft your platform using premium animations and lightning-fast modern tech.</p>
             </div>
-
-            <!-- Step 3 -->
             <div class="process-step reveal delay-3">
                 <div class="step-number">03</div>
                 <h3>Deliver the Website</h3>
@@ -117,7 +109,7 @@
         </div>
     </section>
 
-    <!-- Live Operations Dashboard -->
+    <!-- Agency Dashboard -->
     <section class="section bg-dark dashboard-section">
         <div class="section-header">
             <h2 class="section-title">AGENCY DASHBOARD</h2>
@@ -147,8 +139,8 @@
         </div>
     </section>
 
-    <!-- Services Section (Primary) -->
-    <section id="services" class="section first-section">
+    <!-- Services Section -->
+    <section id="services" class="section">
         <div class="section-header">
             <h2 class="section-title">WHAT WE DO</h2>
         </div>
@@ -156,8 +148,7 @@
             <div class="service-item reveal tilt-card">
                 <div class="tilt-inner">
                     <h3>Custom Website Design</h3>
-                    <p>Unique websites built just for you. We take your ideas step-by-step and implement
-                        them directly
+                    <p>Unique websites built just for you. We take your ideas step-by-step and implement them directly
                         into your website's architecture.</p>
                     <ul class="service-list">
                         <li>Client-Tailored Solutions</li>
@@ -169,8 +160,7 @@
             <div class="service-item reveal tilt-card delay-1">
                 <div class="tilt-inner">
                     <h3>Fast Delivery</h3>
-                    <p>We prioritize speed without compromising quality. Our optimized workflow allows us to
-                        deliver
+                    <p>We prioritize speed without compromising quality. Our optimized workflow allows us to deliver
                         high-performance sites in 1 to 4 days.</p>
                     <ul class="service-list">
                         <li>1-Day Progress Starts</li>
@@ -181,9 +171,8 @@
             </div>
             <div class="service-item reveal tilt-card delay-2">
                 <div class="tilt-inner">
-                    <h3>24/7 Monitoring & Management</h3>
-                    <p>We provide continuous oversight for your digital assets. Our team maintains 24/7
-                        monitoring and
+                    <h3>24/7 Monitoring</h3>
+                    <p>We provide continuous oversight for your digital assets. Our team maintains 24/7 monitoring and
                         management throughout our partnership.</p>
                     <ul class="service-list">
                         <li>Constant Asset Vigilance</li>
@@ -195,81 +184,46 @@
         </div>
     </section>
 
-    <!-- Cost Calculator Section -->
+    <!-- Price Estimator -->
     <section id="calculator" class="section bg-dark">
         <div class="section-header">
             <h2 class="section-title">PRICE ESTIMATOR</h2>
-            <p style="color: #666; margin-bottom: 40px; max-width: 600px;">Select what you need to see a
-                rough price
+            <p style="color: #666; margin-bottom: 40px; max-width: 600px;">Select what you need to see a rough price
                 estimate.</p>
         </div>
-
         <div class="calculator-container">
             <div class="calc-grid">
-                <!-- Option 1 -->
                 <label class="calc-option">
                     <input type="checkbox" value="120" data-label="Professional Portfolio">
                     <div class="option-card">
                         <h4>Professional Portfolio</h4>
-                        <p>A high-end, visual-first platform designed to prove your skill and showcase your
-                            brand story
-                            with premium animations.</p>
+                        <p>A high-end platform designed to prove your skill and showcase your brand story.</p>
                         <span class="price">+120 JOD</span>
                     </div>
                 </label>
-                <!-- Option 2 -->
                 <label class="calc-option">
                     <input type="checkbox" value="80" data-label="Business Web (with CMS)">
                     <div class="option-card">
                         <h4>Business Website (CMS)</h4>
-                        <p>Professional business site with a secure back-end panel, allowing you to update
-                            your own
-                            content instantly.</p>
+                        <p>Professional business site with a secure back-end panel for instant updates.</p>
                         <span class="price">+80 JOD</span>
                     </div>
                 </label>
-                <!-- Option 3 -->
                 <label class="calc-option">
                     <input type="checkbox" value="150" data-label="E-commerce / Shop">
                     <div class="option-card">
                         <h4>Online Store / Shop</h4>
-                        <p>A full-scale digital storefront open 24/7, featuring product listings, cart
-                            systems, and
-                            secure payments.</p>
+                        <p>Full-scale digital storefront open 24/7, featuring product listings and secure payments.</p>
                         <span class="price">+150 JOD</span>
                     </div>
                 </label>
-                <!-- Option 4 -->
                 <label class="calc-option">
                     <input type="checkbox" value="50" data-label="Express Delivery">
                     <div class="option-card">
                         <h4>Express Delivery</h4>
-                        <p>Priority agency workflow that puts your project at the top of the list for a 1-2
-                            day
-                            launch.</p>
+                        <p>Priority agency workflow that puts your project at the top of the list for a 1-2 day launch.
+                        </p>
                         <span class="price">+50 JOD</span>
-                    </div>
-                </label>
-                <!-- Option 5 -->
-                <label class="calc-option">
-                    <input type="checkbox" value="40" data-label="Brand Identity Package">
-                    <div class="option-card">
-                        <h4>Logo & Brand Package</h4>
-                        <p>Complete visual identity including a high-tech logo, custom fonts, and a premium
-                            color
-                            palette.</p>
-                        <span class="price">+40 JOD</span>
-                    </div>
-                </label>
-                <!-- Option 6 -->
-                <label class="calc-option">
-                    <input type="checkbox" value="30" data-label="24/7 Monitoring" data-recurring="true">
-                    <div class="option-card">
-                        <h4>24/7 Monitoring</h4>
-                        <p>Constant vigilance over your digital assets to ensure maximum uptime, security,
-                            and long-term
-                            health.</p>
-                        <span class="price">+30 JOD / MONTH</span>
                     </div>
                 </label>
             </div>
@@ -284,52 +238,39 @@
                     </div>
                 </div>
                 <p style="margin-top: 15px;">Selected: <span id="summeryText">Select items...</span></p>
-                <a href="#contact" id="lockQuoteBtn" class="btn-primary" style="margin-top: 20px;">Lock In
-                    This
+                <a href="#contact" id="lockQuoteBtn" class="btn-primary" style="margin-top: 20px;">Lock In This
                     Quote</a>
             </div>
         </div>
     </section>
 
-
-    <!-- Inventory / Portfolio Section (Secondary) -->
+    <!-- Project Inventory -->
     <section id="inventory" class="section">
         <div class="section-header">
             <h2 class="section-title">PROJECT INVENTORY</h2>
         </div>
-
         <div class="portfolio-grid">
-            <!-- Project 1: Perfect Protocol -->
             <a href="https://perfect-protocol.com" target="_blank" class="project-card">
                 <div class="project-image">
-                    <img src="assets/project-perfect-protocol-logo.png" alt="Perfect Protocol Website"
+                    <img src="assets/project-perfect-protocol-logo.png" alt="Perfect Protocol"
                         style="width: 100%; height: 100%; object-fit: contain; background: #000; padding: 20px;">
                 </div>
                 <div class="project-info">
                     <h3>Perfect Protocol</h3>
-                    <p class="project-desc">Premium Event Management Platform. Complete brand identity and
-                        booking
+                    <p class="project-desc">Premium Event Management Platform. Complete brand identity and booking
                         system.</p>
-                    <div class="project-meta">
-                        <span>Event Services</span>
-                    </div>
+                    <div class="project-meta"><span>Event Services</span></div>
                 </div>
             </a>
-
-            <!-- Project 2: AV -->
             <a href="https://omarbassl214-dotcom.github.io/av-production/" target="_blank" class="project-card">
                 <div class="project-image">
-                    <img src="assets/project-av-logo-v2.png" alt="AV Production Concept"
+                    <img src="assets/project-av-logo-v2.png" alt="AV Production"
                         style="width: 100%; height: 100%; object-fit: contain; background: #000; padding: 20px;">
                 </div>
                 <div class="project-info">
                     <h3>AV PRODUCTION</h3>
-                    <p class="project-desc">Next-generation portfolio for high-fidelity audio visual
-                        services.</p>
-                    <div class="project-meta">
-                        <span>Audio Visual</span>
-                        <span>In Development</span>
-                    </div>
+                    <p class="project-desc">Next-generation portfolio for high-fidelity audio visual services.</p>
+                    <div class="project-meta"><span>Audio Visual</span><span>In Development</span></div>
                 </div>
             </a>
         </div>
@@ -342,63 +283,26 @@
                 <h2 class="section-title">START YOUR PROJECT</h2>
                 <p>Tell us about your requirements. We typically respond within 24 hours.</p>
             </div>
-
             <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-                <!-- Replace with your actual Access Key -->
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-                <input type="hidden" name="subject" value="New Project Inquiry - NexTech">
-                <input type="hidden" name="from_name" value="NexTech Website">
-
                 <div class="form-row">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" name="name" required placeholder="John Doe">
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" required placeholder="john@company.com">
-                    </div>
+                    <div class="form-group"><label>Name</label><input type="text" name="name" required
+                            placeholder="John Doe"></div>
+                    <div class="form-group"><label>Email</label><input type="email" name="email" required
+                            placeholder="john@company.com"></div>
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Service Type</label>
-                        <select name="service_type">
-                            <option value="Professional Portfolio">Professional Portfolio</option>
-                            <option value="Business Website (CMS)">Business Website (CMS)</option>
-                            <option value="Online Store / Shop">Online Store / Shop</option>
-                            <option value="Brand Identity">Brand Identity Package</option>
-                            <option value="Custom Solution">Custom Technical Solution</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Budget Range</label>
-                        <select name="budget">
-                            <option value="100 JOD - 250 JOD">100 JOD - 250 JOD</option>
-                            <option value="250 JOD - 500 JOD">250 JOD - 500 JOD</option>
-                            <option value="500 JOD - 1,000 JOD">500 JOD - 1,000 JOD</option>
-                            <option value="1,000 JOD+">1,000 JOD+</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Project Details</label>
-                    <textarea name="message" id="contactMessage" rows="5"
-                        placeholder="Describe your project goals..."></textarea>
-                </div>
-
+                <div class="form-group"><label>Project Details</label><textarea name="message" id="contactMessage"
+                        rows="5" placeholder="Describe your project goals..."></textarea></div>
                 <button type="submit" class="btn-primary btn-block">Submit Inquiry</button>
             </form>
         </div>
     </section>
 
-
     <footer>
         <p>&copy; 2026 NexTech Agency. All Rights Reserved.</p>
     </footer>
 
-    <!-- Client Portal Modal -->
+    <!-- Modals & AI -->
     <div id="loginModal" class="modal-overlay">
         <div class="modal-box">
             <span class="close-modal">&times;</span>
@@ -406,168 +310,31 @@
                 <h3>CLIENT PORTAL</h3>
                 <p>Secure Access for Existing Clients</p>
             </div>
-            <form class="login-form"
-                onsubmit="event.preventDefault(); alert('Access Denied: Invalid Credentials provided in Demo Mode.');">
-                <div class="form-group">
-                    <label>Client ID</label>
-                    <input type="text" placeholder="NT-XXXX">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" placeholder="••••••••">
-                </div>
+            <form class="login-form" onsubmit="event.preventDefault(); alert('Access Denied');">
+                <div class="form-group"><label>Client ID</label><input type="text" placeholder="NT-XXXX"></div>
+                <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••"></div>
                 <button type="submit" class="btn-primary btn-block">Authenticate</button>
-                <p class="login-help">Contact your account manager for access.</p>
             </form>
         </div>
     </div>
 
-    <!-- AI Concierge Widget -->
     <div class="ai-widget">
         <div class="ai-button" id="aiBtn">
             <div class="ai-icon">AI</div>
         </div>
         <div class="ai-chat-window" id="aiWindow">
             <div class="chat-header">
-                <h4>NexTech AI</h4>
-                <span id="closeAi">&times;</span>
+                <h4>NexTech AI</h4><span id="closeAi">&times;</span>
             </div>
             <div class="chat-body" id="chatBody">
                 <div class="msg bot">
-                    <p>System Online. I am the NexTech virtual assistant. How can I help you optimize your
-                        infrastructure today?</p>
+                    <p>System Online. How can I help you today?</p>
                 </div>
-            </div>
-            <div class="chat-options">
-                <button onclick="sendMsg('What is NexTech?')">What is NexTech?</button>
-                <button onclick="sendMsg('Pricing Info')">Pricing Info</button>
-                <button onclick="sendMsg('Contact Support')">Contact Support</button>
             </div>
         </div>
     </div>
 
-    <!-- Link JS -->
     <script src="script.js"></script>
-
-    <!-- Design Wizard Modal -->
-    <div id="wizardModal" class="modal-overlay">
-        <div class="modal-box wizard-box">
-            <span class="close-wizard">&times;</span>
-            <div class="wizard-header">
-                <h3>PROJECT BLUEPRINT CREATOR</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="wizardProgress"></div>
-                </div>
-                <p id="wizardStepTitle">Step 1: Select Your Industry</p>
-            </div>
-
-            <form id="wizardForm" onsubmit="event.preventDefault();">
-                <!-- Step 1: Industry -->
-                <div class="wizard-step active" data-step="1">
-                    <div class="wizard-grid">
-                        <label class="wizard-card">
-                            <input type="radio" name="industry" value="Corporate" checked>
-                            <div class="card-content">
-                                <span class="icon">🏢</span>
-                                <h4>Corporate</h4>
-                            </div>
-                        </label>
-                        <label class="wizard-card">
-                            <input type="radio" name="industry" value="Creative">
-                            <div class="card-content">
-                                <span class="icon">🎨</span>
-                                <h4>Creative</h4>
-                            </div>
-                        </label>
-                        <label class="wizard-card">
-                            <input type="radio" name="industry" value="E-Commerce">
-                            <div class="card-content">
-                                <span class="icon">🛍️</span>
-                                <h4>Retail</h4>
-                            </div>
-                        </label>
-                        <label class="wizard-card">
-                            <input type="radio" name="industry" value="Tech/SaaS">
-                            <div class="card-content">
-                                <span class="icon">🚀</span>
-                                <h4>Tech / SaaS</h4>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Step 2: Vibe -->
-                <div class="wizard-step" data-step="2">
-                    <div class="wizard-grid">
-                        <label class="wizard-card">
-                            <input type="radio" name="vibe" value="Minimalist" checked>
-                            <div class="card-content">
-                                <span class="icon">⚪</span>
-                                <h4>Minimalist</h4>
-                            </div>
-                        </label>
-                        <label class="wizard-card">
-                            <input type="radio" name="vibe" value="Cyberpunk">
-                            <div class="card-content">
-                                <span class="icon">🤖</span>
-                                <h4>Cyberpunk</h4>
-                            </div>
-                        </label>
-                        <label class="wizard-card">
-                            <input type="radio" name="vibe" value="Luxury">
-                            <div class="card-content">
-                                <span class="icon">💎</span>
-                                <h4>Luxury</h4>
-                            </div>
-                        </label>
-                        <label class="wizard-card">
-                            <input type="radio" name="vibe" value="Corporate Clean">
-                            <div class="card-content">
-                                <span class="icon">👔</span>
-                                <h4>Professional</h4>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Step 3: Features -->
-                <div class="wizard-step" data-step="3">
-                    <div class="wizard-grid">
-                        <label class="wizard-card">
-                            <input type="checkbox" name="feature" value="Blog">
-                            <div class="card-content">
-                                <h4>News / Blog</h4>
-                            </div>
-                        </label>
-                        <label class="wizard-card">
-                            <input type="checkbox" name="feature" value="Login">
-                            <div class="card-content">
-                                <h4>User Login</h4>
-                            </div>
-                        </label>
-                        <label class="wizard-card">
-                            <input type="checkbox" name="feature" value="Booking">
-                            <div class="card-content">
-                                <h4>Booking System</h4>
-                            </div>
-                        </label>
-                        <label class="wizard-card">
-                            <input type="checkbox" name="feature" value="Dark Mode">
-                            <div class="card-content">
-                                <h4>Dark Mode</h4>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Wizard Controls -->
-                <div class="wizard-controls">
-                    <button type="button" class="btn-secondary" id="prevBtn" disabled>Back</button>
-                    <button type="button" class="btn-primary" id="nextBtn">Next</button>
-                </div>
-            </form>
-        </div>
-    </div>
 </body>
 
 </html>
