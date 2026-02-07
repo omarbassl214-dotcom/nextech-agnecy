@@ -136,44 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
     stats.forEach(stat => observer.observe(stat));
 
 
-    // --- AI Concierge Logic ---
-    const aiBtn = document.getElementById('aiBtn');
-    const aiWindow = document.getElementById('aiWindow');
-    const closeAi = document.getElementById('closeAi');
-    const chatBody = document.getElementById('chatBody');
-
-    if (aiBtn && aiWindow) {
-        aiBtn.addEventListener('click', () => {
-            aiWindow.style.display = aiWindow.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        closeAi.addEventListener('click', () => {
-            aiWindow.style.display = 'none';
-        });
-
-        window.sendMsg = function (msgText) {
-            // User Message
-            const userDiv = document.createElement('div');
-            userDiv.classList.add('msg', 'user');
-            userDiv.innerHTML = `<p>${msgText}</p>`;
-            chatBody.appendChild(userDiv);
-            chatBody.scrollTop = chatBody.scrollHeight;
-
-            // Simulated AI Delay
-            setTimeout(() => {
-                let replyText = "";
-                if (msgText.includes("Pricing")) replyText = "Our professional websites start at just 120 JOD. We offer custom design, fast delivery, and 24/7 monitoring to fit your budget.";
-                else if (msgText.includes("NexTech")) replyText = "NexTech is a premium digital agency. We build, buy, and sell professional high-performance websites.";
-                else replyText = "I've flagged this for a human agent. Please use the 'Start Project' form for detailed inquiries.";
-
-                const botDiv = document.createElement('div');
-                botDiv.classList.add('msg', 'bot');
-                botDiv.innerHTML = `<p>${replyText}</p>`;
-                chatBody.appendChild(botDiv);
-                chatBody.scrollTop = chatBody.scrollHeight;
-            }, 800);
-        };
-    }
 
     // --- Design Wizard Logic ---
     const wizardModal = document.getElementById('wizardModal');
