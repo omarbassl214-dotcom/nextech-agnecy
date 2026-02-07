@@ -110,14 +110,15 @@
         min-height: 140px !important;
         border-radius: 50px !important;
         /* Matches PC border-radius */
-        box-shadow: 0 0 40px rgba(157, 0, 255, 0.4) !important;
-        border: 1px solid rgba(157, 0, 255, 0.2) !important;
+        box-shadow: 0 0 60px rgba(157, 0, 255, 0.3) !important;
+        border: 1px solid rgba(157, 0, 255, 0.1) !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
         background: #000 !important;
         /* Solid black base just like PC */
-        overflow: hidden !important;
+        overflow: visible !important;
+        /* ALLOW circular glow to bleed out */
         position: relative !important;
         animation: floatLogo 6s ease-in-out infinite !important;
         flex-shrink: 0 !important;
@@ -129,19 +130,21 @@
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
-        width: 150px !important;
-        height: 150px !important;
+        width: 180px !important;
+        /* Larger than wrapper to bleed out as a circle */
+        height: 180px !important;
         border-radius: 50% !important;
-        filter: blur(30px) !important;
-        opacity: 0.8 !important;
-        background: radial-gradient(circle, var(--accent-violet) 0%, transparent 70%) !important;
+        filter: blur(35px) !important;
+        opacity: 0.7 !important;
+        background: radial-gradient(circle, var(--accent-violet) 0%, transparent 80%) !important;
         z-index: -1 !important;
         animation: pulseLogoGlow 4s ease-in-out infinite alternate !important;
     }
 
     .big-hero-logo {
-        width: 100% !important;
-        height: 100% !important;
+        width: 140px !important;
+        /* Match wrapper exactly */
+        height: 140px !important;
         object-fit: contain !important;
         mix-blend-mode: screen;
         position: relative !important;
