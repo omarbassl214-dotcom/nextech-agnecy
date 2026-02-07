@@ -169,32 +169,47 @@
         color: #ccc;
     }
 
-    /* 4. GRID STACKING (Process, Portfolio, Services, Stats) */
-    .process-container,
-    .dashboard-grid,
-    .services-grid,
-    .calc-grid {
-        display: grid !important;
-        gap: 8px !important;
-        width: 100% !important;
-        padding: 0 5px !important;
-        /* Tiny side padding to prevent edge touching */
-        box-sizing: border-box !important;
-    }
+    /* 4. PREMIUM GRID & SWIPE SYSTEM */
 
+    /* Horizontal Scrolling Containers (Swipe System) */
     .process-container,
     .services-grid {
-        grid-template-columns: repeat(3, 1fr) !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        gap: 15px !important;
+        padding: 10px 20px 30px 20px !important;
+        /* Bottom padding for scrollbar visibility */
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Hide scrollbar for clean look */
+        width: 100vw !important;
+        margin-left: -10% !important;
+        /* Offset parent padding to bleed to edge */
+        box-sizing: border-box;
     }
 
+    .process-container::-webkit-scrollbar,
+    .services-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* 2-Column Grid (Stats Dashboard) */
     .dashboard-grid {
-        grid-template-columns: repeat(4, 1fr) !important;
-        /* One row for stats */
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+        width: 100% !important;
     }
 
+    /* 3-Column Grid (Price Estimator) */
     .calc-grid {
+        display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
-        /* 3x2 as requested */
+        gap: 8px !important;
+        width: 100% !important;
     }
 
     .portfolio-grid,
@@ -204,22 +219,35 @@
         gap: 20px !important;
     }
 
+    /* Swipe Cards Styling */
+    .process-step,
+    .service-item {
+        flex: 0 0 280px !important;
+        /* Large readable width */
+        min-width: 280px !important;
+        scroll-snap-align: center !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 20px !important;
+        padding: 25px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        transition: transform 0.3s ease;
+    }
+
+    /* Regular Grid Cards (Stats & Calc) */
     .stat-card,
-    .service-item,
-    .project-card,
     .calc-option,
-    .process-step {
+    .project-card {
         width: 100% !important;
-        aspect-ratio: 1 / 1 !important;
-        /* FORCE SQUARE SHAPE */
-        margin-bottom: 0 !important;
-        background: rgba(255, 255, 255, 0.05) !important;
+        background: rgba(255, 255, 255, 0.04) !important;
         backdrop-filter: blur(8px);
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        border-radius: 8px !important;
-        /* Sharper rounded corners for square feel */
-        padding: 5px !important;
-        /* Minimal padding for square fit */
+        border-radius: 15px !important;
+        padding: 15px !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
@@ -228,52 +256,65 @@
         overflow: hidden !important;
     }
 
+    .calc-option {
+        padding: 10px 5px !important;
+    }
+
     /* Shrink text and icons for multi-column layout */
-    /* Ultra-compact text for 3-column squares */
+    /* Restore Full Text Visibility */
     .stat-number {
-        font-size: 1rem !important;
-        font-weight: bold;
+        font-size: 1.8rem !important;
+        font-weight: 800;
+        margin-bottom: 5px;
     }
 
     .stat-card p {
-        font-size: 0.5rem !important;
+        font-size: 0.75rem !important;
+        color: var(--text-muted);
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 1px;
     }
 
     .process-step h3,
-    .service-item h3,
-    .option-card h4 {
-        font-size: 0.55rem !important;
-        line-height: 1.1 !important;
-        margin: 0 !important;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .process-step i,
-    .service-item i,
-    .option-card i {
-        font-size: 1rem !important;
-        margin-bottom: 3px !important;
+    .service-item h3 {
+        font-size: 1.1rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 12px !important;
+        color: #fff !important;
     }
 
     .process-step p,
-    .service-item p,
-    .option-card p {
-        display: none !important;
+    .service-item p {
+        display: block !important;
+        /* RESTORED INFO */
+        font-size: 0.85rem !important;
+        line-height: 1.5 !important;
+        color: #bbb !important;
+        margin-top: 10px;
+    }
+
+    .process-step i,
+    .service-item i {
+        font-size: 1.5rem !important;
+        margin-bottom: 15px !important;
+        color: var(--accent-violet);
     }
 
     .step-number {
-        font-size: 0.8rem !important;
-        margin-bottom: 2px !important;
+        font-size: 1rem !important;
+        font-weight: bold;
+        color: var(--accent-secondary);
+        margin-bottom: 8px !important;
+    }
+
+    .option-card h4 {
+        font-size: 0.65rem !important;
+        line-height: 1.2 !important;
     }
 
     .option-card .price {
-        font-size: 0.6rem !important;
-        margin-top: 2px !important;
+        font-size: 0.7rem !important;
+        margin-top: 5px !important;
     }
 
     .calc-result {
