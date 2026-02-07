@@ -109,19 +109,20 @@
         min-width: 140px !important;
         min-height: 140px !important;
         border-radius: 50px !important;
-        /* Matches PC border-radius */
-        box-shadow: 0 0 60px rgba(157, 0, 255, 0.3) !important;
-        border: 1px solid rgba(157, 0, 255, 0.1) !important;
+        /* Matches PC border-radius exactly */
+        box-shadow: none !important;
+        /* REMOVED: This was causing the square glow */
+        border: 1px solid rgba(157, 0, 255, 0.15) !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
         background: #000 !important;
-        /* Solid black base just like PC */
+        /* Matches PC black background */
         overflow: visible !important;
-        /* ALLOW circular glow to bleed out */
         position: relative !important;
         animation: floatLogo 6s ease-in-out infinite !important;
         flex-shrink: 0 !important;
+        z-index: 5 !important;
     }
 
     .logo-glow-wrapper::before {
@@ -130,27 +131,26 @@
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
-        width: 180px !important;
-        /* Larger than wrapper to bleed out as a circle */
-        height: 180px !important;
+        width: 220px !important;
+        /* Large true circle */
+        height: 220px !important;
         border-radius: 50% !important;
-        filter: blur(35px) !important;
-        opacity: 0.7 !important;
-        background: radial-gradient(circle, var(--accent-violet) 0%, transparent 80%) !important;
+        filter: blur(40px) !important;
+        /* Very soft bleed */
+        opacity: 0.6 !important;
+        background: radial-gradient(circle, var(--accent-violet) 0%, transparent 75%) !important;
         z-index: -1 !important;
         animation: pulseLogoGlow 4s ease-in-out infinite alternate !important;
     }
 
     .big-hero-logo {
         width: 140px !important;
-        /* Match wrapper exactly */
         height: 140px !important;
         object-fit: contain !important;
         mix-blend-mode: screen;
         position: relative !important;
         z-index: 2 !important;
         border-radius: 40px !important;
-        /* Matches PC image radius */
     }
 
     h1 {
