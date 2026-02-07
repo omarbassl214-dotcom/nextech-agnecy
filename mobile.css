@@ -104,54 +104,50 @@
     /* 3. HERO REFINEMENTS (Logo & Glow) */
     .logo-glow-wrapper {
         margin: 0 auto 30px auto !important;
-        /* Center horizontally */
-        width: 130px !important;
-        height: 130px !important;
-        min-width: 130px !important;
-        min-height: 130px !important;
-        border-radius: 50% !important;
-        box-shadow: 0 0 50px rgba(157, 0, 255, 0.4) !important;
+        width: 140px !important;
+        height: 140px !important;
+        min-width: 140px !important;
+        min-height: 140px !important;
+        border-radius: 50px !important;
+        /* Matches PC border-radius */
+        box-shadow: 0 0 40px rgba(157, 0, 255, 0.4) !important;
         border: 1px solid rgba(157, 0, 255, 0.2) !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        background: rgba(10, 5, 20, 0.8) !important;
-        /* Dark solid circle base */
+        background: #000 !important;
+        /* Solid black base just like PC */
         overflow: hidden !important;
         position: relative !important;
-        animation: none !important;
-        /* KILL desktop float animation */
-        transform: none !important;
-        visibility: visible !important;
-        opacity: 1 !important;
+        animation: floatLogo 6s ease-in-out infinite !important;
         flex-shrink: 0 !important;
     }
 
     .logo-glow-wrapper::before {
         content: '' !important;
         position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 150px !important;
+        height: 150px !important;
         border-radius: 50% !important;
-        filter: blur(25px) !important;
-        opacity: 0.9 !important;
-        background: radial-gradient(circle, var(--accent-violet) 0%, transparent 80%) !important;
+        filter: blur(30px) !important;
+        opacity: 0.8 !important;
+        background: radial-gradient(circle, var(--accent-violet) 0%, transparent 70%) !important;
         z-index: -1 !important;
-        animation: none !important;
-        /* KILL rogue pulse animation */
-        transform: none !important;
+        animation: pulseLogoGlow 4s ease-in-out infinite alternate !important;
     }
 
     .big-hero-logo {
-        width: 100px !important;
-        height: 100px !important;
+        width: 100% !important;
+        height: 100% !important;
         object-fit: contain !important;
         mix-blend-mode: screen;
         position: relative !important;
         z-index: 2 !important;
-        border-radius: 0 !important;
+        border-radius: 40px !important;
+        /* Matches PC image radius */
     }
 
     h1 {
