@@ -1249,37 +1249,6 @@ footer {
 }
 
 
-/* Tech Marquee */
-.tech-marquee {
-    background: var(--accent-violet);
-    color: #000;
-    padding: 15px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-}
-
-.marquee-content {
-    display: inline-block;
-    animation: scroll 20s linear infinite;
-}
-
-.marquee-content span {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin: 0 30px;
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
 
 
 /* AI Concierge Widget */
