@@ -173,7 +173,8 @@
 
     /* Horizontal Scrolling Containers (Swipe System) */
     .process-container,
-    .services-grid {
+    .services-grid,
+    .portfolio-grid {
         display: flex !important;
         flex-direction: row !important;
         overflow-x: auto !important;
@@ -192,7 +193,8 @@
     }
 
     .process-container::-webkit-scrollbar,
-    .services-grid::-webkit-scrollbar {
+    .services-grid::-webkit-scrollbar,
+    .portfolio-grid::-webkit-scrollbar {
         display: none;
     }
 
@@ -212,7 +214,6 @@
         width: 100% !important;
     }
 
-    .portfolio-grid,
     .calculator-container {
         display: flex !important;
         flex-direction: column !important;
@@ -244,8 +245,7 @@
 
     /* Regular Grid Cards (Stats & Calc) */
     .stat-card,
-    .calc-option,
-    .project-card {
+    .calc-option {
         width: 100% !important;
         background: rgba(255, 255, 255, 0.04) !important;
         backdrop-filter: blur(8px);
@@ -258,6 +258,33 @@
         align-items: center !important;
         text-align: center;
         overflow: hidden !important;
+    }
+
+    /* Portfolio Cards - Swipe Style */
+    .project-card {
+        flex: 0 0 85% !important;
+        /* Wide peek effect */
+        min-width: 85% !important;
+        scroll-snap-align: center !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 40px !important;
+        /* Even softer for portfolio */
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        transition: transform 0.3s ease;
+    }
+
+    .project-image {
+        height: 200px !important;
+        /* Fixed height for consistency */
+    }
+
+    .project-info {
+        padding: 30px !important;
+        text-align: left !important;
     }
 
     .calc-option {
