@@ -59,9 +59,9 @@
         background: transparent !important;
     }
 
-    /* Base background for the whole page */
+    /* Base background removed to reveal video */
     html {
-        background: var(--bg-deep) !important;
+        background: transparent !important;
     }
 
     /* Force all sections to be visible, relative, and stacked */
@@ -82,6 +82,20 @@
         background: transparent !important;
         z-index: 10 !important;
         overflow: visible !important;
+    }
+
+    /* 3. MOBILE VIDEO BACKGROUND SYNC */
+    .bg-video {
+        display: block !important;
+        opacity: 0 !important;
+        /* Start transparent, JS will add .active */
+        z-index: -2 !important;
+    }
+
+    .bg-video.active {
+        opacity: 0.4 !important;
+        /* Desired mobile opacity */
+        visibility: visible !important;
     }
 
     /* Target reveal animations separately to avoid breaking layout elements like the logo wrapper */
