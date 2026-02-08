@@ -78,11 +78,9 @@
         <div class="health-check-widget reveal">
             <h4 style="color: var(--accent-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
                 Free Website Analysis</h4>
-            <form action="https://api.web3forms.com/submit" method="POST"
+            <form id="analysis-form" action="https://api.web3forms.com/submit" method="POST"
                 style="display: flex; gap: 15px; margin-bottom: 20px; flex-direction: column;">
                 <input type="hidden" name="access_key" value="2451fbd9-88a6-4ab6-aae5-9e8270225a3b">
-                <input type="hidden" name="redirect"
-                    value="https://omarbassl214-dotcom.github.io/nextech-agency/success.html">
                 <input type="hidden" name="subject" value="New Website Analysis Lead">
                 <input type="text" name="website_url" placeholder="www.yourcompany.com" style="width: 100%;" required>
                 <input type="tel" name="phone_number" placeholder="Phone Number (e.g. +962...)" style="width: 100%;"
@@ -304,10 +302,8 @@
                 <h2 class="section-title">START YOUR PROJECT</h2>
                 <p>Tell us about your requirements. We typically respond within 24 hours.</p>
             </div>
-            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                 <input type="hidden" name="access_key" value="2451fbd9-88a6-4ab6-aae5-9e8270225a3b">
-                <input type="hidden" name="redirect"
-                    value="https://omarbassl214-dotcom.github.io/nextech-agency/success.html">
                 <div class="form-row">
                     <div class="form-group"><label>Name</label><input type="text" name="name" required
                             placeholder="John Doe"></div>
@@ -342,7 +338,18 @@
     </div>
 
 
-    <script src="script.js"></script>
+    <!-- Outro Overlay -->
+    <div id="outro-overlay" class="outro-overlay-container">
+        <canvas id="outro-canvas"></canvas>
+        <div class="outro-content">
+            <div class="status-badge">Transmission Complete</div>
+            <div class="outro-logo"></div>
+            <h1>DECODING SUCCESS</h1>
+            <p>Your data has been securely transmitted. Our agents will initialize contact shortly.</p>
+        </div>
+    </div>
+
+    <script src="script.js?v=2.2"></script>
 </body>
 
 </html>
