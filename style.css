@@ -1537,11 +1537,10 @@ body.intro-active {
 .outro-logo {
     width: 120px;
     height: 120px;
-    background: #000 url('assets/logo.png') no-repeat center/contain;
+    width: 120px;
+    height: 120px;
+    background: url('assets/logo.png') no-repeat center/contain;
     margin: 0 auto 30px;
-    border-radius: 24px;
-    /* Soft edges */
-    overflow: hidden;
     filter: drop-shadow(0 0 15px var(--accent-gold));
     animation: eventHorizonPulse 1.5s infinite alternate ease-in-out;
 }
