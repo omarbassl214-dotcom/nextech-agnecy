@@ -1541,8 +1541,9 @@ body.intro-active {
     height: 120px;
     background: url('assets/logo.png') no-repeat center/contain;
     margin: 0 auto 30px;
+    border-radius: 24px;
+    overflow: hidden;
     filter: drop-shadow(0 0 15px var(--accent-gold));
-    animation: eventHorizonPulse 1.5s infinite alternate ease-in-out;
 }
 
 @keyframes eventHorizonPulse {
