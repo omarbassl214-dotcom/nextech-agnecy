@@ -104,19 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Health Check Widget ---
-    const analyzeBtn = document.querySelector('.health-check-widget button');
-    if (analyzeBtn) {
-        analyzeBtn.addEventListener('click', () => {
-            const input = document.querySelector('.health-check-widget input');
-            if (input.value.length > 3) {
-                alert(`Analyzing ${input.value}...\n\nDiagnostic Started. Our team will contact you with a full report.`);
-                input.value = '';
-            } else {
-                alert('Please enter a valid URL.');
-            }
-        });
-    }
 
     // --- Live Ops Dashboard Counters ---
     const stats = document.querySelectorAll('.stat-number');
