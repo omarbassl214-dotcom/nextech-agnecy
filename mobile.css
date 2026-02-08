@@ -22,23 +22,26 @@
     .nav-links {
         background: rgba(10, 5, 25, 0.95) !important;
         border: 1px solid rgba(157, 0, 255, 0.3);
-        gap: 6px 12px;
-        padding: 8px 18px;
+        gap: 4px 10px;
+        /* Reduced gap */
+        padding: 8px 15px;
         flex-wrap: wrap;
         justify-content: center;
         border-radius: 50px;
         /* Pill Shape */
         width: fit-content;
-        max-width: 95%;
+        max-width: 98%;
+        /* Slightly wider allowance */
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(12px);
         pointer-events: auto !important;
     }
 
     .nav-links a {
-        font-size: 0.55rem;
+        font-size: 0.52rem;
+        /* Slighlty smaller to prevent overlapping */
         padding: 2px 0;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
         color: #fff !important;
         text-transform: uppercase;
     }
@@ -430,5 +433,33 @@
         padding: 40px 10% !important;
         font-size: 0.75rem;
         background: #000 !important;
+    }
+
+    /* 6. CONTACT FORM MOBILE FIX (Zero Overflow) */
+    .contact-form {
+        padding: 40px 20px !important;
+        /* Narrower padding */
+        border-radius: 40px !important;
+    }
+
+    .form-row {
+        display: flex !important;
+        flex-direction: column !important;
+        /* Stack fields! */
+        gap: 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .form-group label {
+        font-size: 0.8rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 0.9rem !important;
     }
 }
