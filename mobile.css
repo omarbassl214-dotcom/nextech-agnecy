@@ -177,6 +177,8 @@
     .portfolio-grid {
         display: flex !important;
         flex-direction: row !important;
+        align-items: stretch !important;
+        /* THE FIX: Force equal heights top-to-bottom */
         overflow-x: auto !important;
         overflow-y: hidden !important;
         gap: 15px !important;
