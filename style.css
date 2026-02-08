@@ -352,10 +352,10 @@ nav {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    /* Changed from center to avoid pushing content up into nav */
-    padding: 280px 5% 0 5%;
-    /* Increased top clearance for floating logo */
+    justify-content: center;
+    /* Reverted to center for balanced layout */
+    padding: 240px 5% 0 5%;
+    /* Adjusted top space for logo */
     position: relative;
     background: transparent;
     text-align: center;
@@ -735,7 +735,8 @@ footer {
 
 /* Health Check Widget */
 .health-check-widget {
-    margin: 100px auto 140px auto;
+    margin: 40px auto;
+    /* Reduced margin as it's now wrapped in a .section */
     background: linear-gradient(var(--bg-cosmic), var(--bg-cosmic)) padding-box,
         var(--accent-nebula) border-box;
     padding: 40px;
