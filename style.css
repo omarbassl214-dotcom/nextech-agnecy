@@ -14,17 +14,22 @@ html {
     /* Reference Black */
     --bg-cosmic: #0a0118;
     /* Deep Indigo Void */
-    --accent-violet: #ff00ff;
-    /* Electric Magenta reference */
-    --accent-secondary: #0088ff;
-    /* Galactic Blue reference */
-    --accent-vibrant: #d400ff;
-    /* Mid-tone Purple */
+    --accent-purple: #9d00ff;
+    /* Royal Purple */
+    --accent-gold: #ff8c00;
+    /* Amber Nebula */
+    --accent-nebula: linear-gradient(135deg, var(--accent-purple), var(--accent-gold));
     --text-main: #ffffff;
-    --text-muted: #bd93f9;
-    --glass-bg: rgba(10, 5, 20, 0.45);
-    --glass-border: rgba(255, 0, 255, 0.2);
+    --text-muted: #d8b4fe;
+    /* Softer Lavender */
+    --glass-bg: rgba(10, 2, 25, 0.45);
+    --glass-border: rgba(157, 0, 255, 0.3);
     --glass-blur: blur(16px);
+
+    /* Mapping for compatibility */
+    --accent-violet: var(--accent-purple);
+    --accent-secondary: var(--accent-gold);
+    --accent-vibrant: #b14dff;
 }
 
 body {
@@ -38,101 +43,25 @@ body {
     position: relative;
 }
 
-/* Animated Galaxy Background */
-#galaxy-bg {
+/* Cinematic Background Video (Local Dual-Video Seamless Loop) */
+.bg-video {
     position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: url('assets/galaxy_bg.jpg') no-repeat center center;
-    background-size: 60%;
-    z-index: -2;
-    animation: galaxyDrift 120s linear infinite alternate;
-    opacity: 0.2;
-    /* Subdued base layer */
-    mix-blend-mode: screen;
-}
-
-@keyframes galaxyDrift {
-    0% {
-        transform: rotate(0deg) scale(1);
-    }
-
-    100% {
-        transform: rotate(10deg) scale(1.1);
-    }
-}
-
-/* Nebula Waves (Simulating the reference image flow) */
-.nebula-waves {
-    position: fixed;
-    bottom: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
     z-index: -2;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
     pointer-events: none;
 }
 
-.wave {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(140px);
-    opacity: 0.35;
-    /* Subdued from 0.6 */
-    mix-blend-mode: color-dodge;
-    animation: nebulaDrift 45s infinite ease-in-out alternate;
-}
-
-.wave-1 {
-    width: 150vw;
-    height: 150vh;
-    top: -40%;
-    left: -20%;
-    background: radial-gradient(circle, #ff00ff 0%, transparent 70%);
-}
-
-.wave-2 {
-    width: 140vw;
-    height: 140vh;
-    bottom: -30%;
-    right: -20%;
-    background: radial-gradient(circle, #0088ff 0%, transparent 70%);
-    animation-duration: 60s;
-    animation-delay: -15s;
-}
-
-.wave-3 {
-    width: 100vw;
-    height: 100vh;
-    top: 25%;
-    left: 35%;
-    background: radial-gradient(circle, #d400ff 0%, transparent 60%);
-    opacity: 0.25;
-    /* Subdued from 0.5 */
-    animation-duration: 75s;
-}
-
-@keyframes nebulaDrift {
-    0% {
-        transform: translate(-8%, -8%) scale(1);
-    }
-
-    100% {
-        transform: translate(8%, 8%) scale(1.15);
-    }
-}
-
-@keyframes waveFlow {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+.bg-video.active {
+    opacity: 0.4;
+    /* Final desired opacity */
 }
 
 /* Cinematic Reveals */
@@ -191,22 +120,19 @@ body::after {
     animation: pulseGlow 10s ease-in-out infinite alternate;
 }
 
-/* Bottom Right Orb (Violet) */
+/* Bottom Left Orb (Amber Nebula) */
 body::before {
     bottom: -10%;
-    right: -10%;
-    background: radial-gradient(circle, rgba(107, 33, 168, 0.45) 0%, rgba(0, 0, 0, 0) 70%);
-    /* Richest Purple Orb */
+    left: -10%;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
 }
 
-/* Top Left Orb (Pink/Cosmic) */
+/* Top Right Orb (Deep Space Purple) */
 body::after {
     top: -10%;
-    left: -10%;
-    background: radial-gradient(circle, rgba(151, 71, 255, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
-    /* Bright Cosmic Orb */
+    right: -10%;
+    background: radial-gradient(circle, rgba(157, 0, 255, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
     animation-duration: 15s;
-    /* Sync offset */
 }
 
 @keyframes pulseGlow {
@@ -221,21 +147,7 @@ body::after {
     }
 }
 
-/* Global Galaxy Overlay for persistent v-tone */
-.galaxy-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(circle at 30% 40%, rgba(212, 0, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 70% 60%, rgba(75, 0, 130, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.05) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: -1;
-    mix-blend-mode: screen;
-}
+
 
 /* Force sections to be transparent */
 section,
@@ -262,10 +174,8 @@ section,
 .star-field-far {
     background-image:
         radial-gradient(1.2px 1.2px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
-        radial-gradient(1.5px 1.5px at 140px 170px, #ff00ff, rgba(0, 0, 0, 0)),
-        /* Magenta Star */
-        radial-gradient(1.2px 1.2px at 50px 160px, #00f0ff, rgba(0, 0, 0, 0)),
-        /* Cyan Star */
+        radial-gradient(1.5px 1.5px at 140px 170px, #9d00ff, rgba(0, 0, 0, 0)),
+        radial-gradient(1.2px 1.2px at 50px 160px, #6b21a8, rgba(0, 0, 0, 0)),
         radial-gradient(1.2px 1.2px at 90px 40px, #ffffff, rgba(0, 0, 0, 0));
     background-repeat: repeat;
     background-size: 200px 200px;
@@ -277,8 +187,8 @@ section,
 .star-field-near {
     background-image:
         radial-gradient(2.2px 2.2px at 100px 50px, #ffffff, rgba(0, 0, 0, 0)),
-        radial-gradient(2.8px 2.8px at 220px 280px, #ff00ff, rgba(0, 0, 0, 0)),
-        radial-gradient(2.5px 2.5px at 30px 200px, #00f0ff, rgba(0, 0, 0, 0));
+        radial-gradient(2.8px 2.8px at 220px 280px, #b14dff, rgba(0, 0, 0, 0)),
+        radial-gradient(2.5px 2.5px at 30px 200px, #9d00ff, rgba(0, 0, 0, 0));
     background-repeat: repeat;
     background-size: 400px 400px;
     animation: stars 80s linear infinite;
@@ -342,7 +252,7 @@ h2.section-title {
 
 .highlight {
     color: transparent;
-    background: linear-gradient(90deg, var(--accent-violet), #c77dff);
+    background: var(--accent-nebula);
     -webkit-background-clip: text;
     background-clip: text;
 }
@@ -367,9 +277,10 @@ nav {
 
 .nav-links {
     pointer-events: auto;
-    background: rgba(18, 10, 31, 0.8);
+    background: linear-gradient(rgba(18, 10, 31, 0.8), rgba(18, 10, 31, 0.8)) padding-box,
+        var(--accent-nebula) border-box;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(123, 66, 188, 0.3);
+    border: 1px solid transparent;
     padding: 10px 30px;
     border-radius: 50px;
     display: flex;
@@ -425,8 +336,8 @@ nav {
     background: none;
     font-weight: 700;
     /* Bold to stand out slightly */
-    border-bottom: 2px solid var(--accent-violet);
-    /* Subtle underline indicator */
+    border-bottom: 2px solid var(--accent-gold);
+    /* Gold underline indicator */
 }
 
 .btn-nav:hover {
@@ -459,12 +370,7 @@ nav {
     display: inline-block;
     margin-bottom: 40px;
     z-index: 5;
-    border-radius: 50px;
-    overflow: hidden;
-    /* Clips the black box of the logo */
-    box-shadow: 0 0 40px rgba(207, 0, 255, 0.4);
     animation: floatLogo 6s ease-in-out infinite;
-    /* Move animation here */
 }
 
 .logo-glow-wrapper::before {
@@ -475,7 +381,7 @@ nav {
     transform: translate(-50%, -50%);
     width: 150px;
     height: 150px;
-    background: radial-gradient(circle, var(--accent-violet) 0%, rgba(123, 66, 188, 0) 70%);
+    background: radial-gradient(circle, var(--accent-gold) 0%, rgba(123, 66, 188, 0) 70%);
     filter: blur(30px);
     opacity: 0.8;
     z-index: -1;
@@ -500,6 +406,8 @@ nav {
     mix-blend-mode: screen;
     /* Helps blends out black background if it exists */
     border-radius: 40px;
+    filter: hue-rotate(20deg) brightness(1.2);
+    /* Adjust logo color to match royal purple */
 }
 
 @keyframes floatLogo {
@@ -532,7 +440,7 @@ nav {
 .btn-primary {
     display: inline-block;
     padding: 15px 40px;
-    background: linear-gradient(90deg, var(--accent-violet), var(--accent-secondary));
+    background: var(--accent-nebula);
     color: #fff;
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
@@ -608,10 +516,9 @@ nav {
 }
 
 .badge.dev {
-    background: var(--accent-violet);
-    /* Cyan */
+    background: var(--accent-vibrant);
     color: #000;
-    box-shadow: 0 2px 10px rgba(0, 240, 255, 0.3);
+    box-shadow: 0 2px 10px rgba(157, 0, 255, 0.3);
 }
 
 .project-info {
@@ -673,18 +580,19 @@ nav {
 }
 
 .btn-secondary:hover {
-    background: var(--accent-violet);
+    background: var(--accent-nebula);
     color: #fff;
-    box-shadow: 0 0 20px rgba(123, 66, 188, 0.4);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.4);
 }
 
 /* Service Item Enhanced (Glass) */
 .service-item {
-    background: var(--glass-bg);
+    background: linear-gradient(var(--glass-bg), var(--glass-bg)) padding-box,
+        var(--accent-nebula) border-box;
     backdrop-filter: var(--glass-blur);
     padding: 60px 40px;
     /* Increased vertical padding */
-    border: 1px solid var(--glass-border);
+    border: 1px solid transparent;
     transition: 0.3s;
     border-radius: 40px;
     /* Softer corners */
@@ -693,8 +601,13 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Retained from original */
     max-width: 380px;
+    /* Retained from original */
     margin: 0 auto;
+    /* Retained from original */
+    box-shadow: 0 0 20px rgba(157, 0, 255, 0.1);
+    transform: translateY(0);
 }
 
 .service-item:hover {
@@ -712,7 +625,7 @@ nav {
 }
 
 .service-item:hover .service-icon {
-    color: rgba(0, 240, 255, 0.2);
+    color: rgba(157, 0, 255, 0.15);
 }
 
 .service-list {
@@ -746,9 +659,10 @@ nav {
 }
 
 .contact-form {
-    background: var(--bg-cosmic);
+    background: linear-gradient(var(--bg-cosmic), var(--bg-cosmic)) padding-box,
+        var(--accent-nebula) border-box;
     padding: 60px;
-    border: 1px solid var(--glass-border);
+    border: 1px solid transparent;
     backdrop-filter: var(--glass-blur);
     border-radius: 30px;
 }
@@ -776,20 +690,21 @@ input,
 select,
 textarea {
     background: var(--bg-deep);
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(157, 0, 255, 0.2);
     padding: 15px;
     color: #fff;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     outline: none;
     transition: 0.3s;
+    border-radius: 10px;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
     border-color: var(--accent-violet);
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
+    box-shadow: 0 0 15px rgba(157, 0, 255, 0.15);
 }
 
 .btn-block {
@@ -818,21 +733,22 @@ footer {
 }
 
 .nav-item-login:hover {
-    border-bottom-color: var(--accent-violet);
+    border-bottom-color: var(--accent-gold);
 }
 
 /* Health Check Widget */
 .health-check-widget {
     margin: 100px auto 140px auto;
-    /* Even more vertical spacing */
-    background: rgba(15, 17, 21, 0.8);
-    padding: 20px;
-    border: 1px solid #333;
+    background: linear-gradient(var(--bg-cosmic), var(--bg-cosmic)) padding-box,
+        var(--accent-nebula) border-box;
+    padding: 40px;
+    border: 1px solid transparent;
     display: inline-block;
-    backdrop-filter: blur(5px);
+    backdrop-filter: var(--glass-blur);
     width: 100%;
-    max-width: 500px;
-    border-radius: 20px;
+    max-width: 550px;
+    border-radius: 30px;
+    text-align: center;
 }
 
 .widget-caption {
@@ -857,32 +773,32 @@ footer {
 }
 
 .health-check-widget input {
-    flex-grow: 1;
-    background: #000;
-    border: 1px solid #333;
+    width: 100%;
+    background: var(--bg-deep);
+    border: 1px solid rgba(157, 0, 255, 0.2);
     color: #fff;
-    padding: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 0;
+    /* Handled by gap in container */
 }
 
 .health-check-widget button {
-    background: #222;
+    background: var(--accent-nebula);
     color: #fff;
-    border: 1px solid #333;
-    border-left: none;
-    padding: 0 20px;
+    border: none;
+    padding: 15px 30px;
     cursor: pointer;
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     transition: 0.3s;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 12px;
+    font-weight: 700;
 }
 
 .health-check-widget button:hover {
-    background: var(--accent-violet);
-    color: #000;
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.4);
+    transform: translateY(-2px);
 }
 
 
@@ -904,20 +820,21 @@ footer {
 }
 
 .option-card {
-    background: var(--glass-bg);
+    background: linear-gradient(var(--glass-bg), var(--glass-bg)) padding-box,
+        var(--accent-nebula) border-box;
     backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
+    border: 1px solid transparent;
     padding: 20px;
     cursor: pointer;
     transition: 0.3s;
     height: 100%;
     border-radius: 20px;
-    /* Increased rounding */
 }
 
 .calc-option input:checked+.option-card {
-    border-color: var(--accent-violet);
-    box-shadow: 0 0 15px rgba(157, 0, 255, 0.3);
+    background: linear-gradient(rgba(157, 0, 255, 0.1), rgba(255, 140, 0, 0.1)) padding-box,
+        var(--accent-nebula) border-box;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.2);
 }
 
 .option-card h4 {
@@ -933,21 +850,21 @@ footer {
 }
 
 .option-card .price {
-    font-size: 0.9rem;
-    color: var(--accent-violet);
-    font-weight: 600;
+    font-size: 1rem;
+    color: var(--accent-gold);
+    font-weight: 800;
 }
 
 .calc-result {
-    background: #0f1115;
-    border: 1px solid var(--accent-violet);
+    background: linear-gradient(#0f1115, #0f1115) padding-box,
+        var(--accent-nebula) border-box;
+    border: 1px solid transparent;
     padding: 30px;
     position: sticky;
     top: 100px;
     height: fit-content;
     text-align: center;
     border-radius: 20px;
-    /* Added rounding */
 }
 
 .total-price {
@@ -974,17 +891,15 @@ footer {
 }
 
 .modal-box {
-    background: #1A0B2E;
-    /* Opaque backup */
-    background: linear-gradient(135deg, rgba(26, 11, 46, 0.95), rgba(5, 5, 5, 0.95));
-    border: 1px solid var(--accent-violet);
+    background: linear-gradient(#1A0B2E, #050505) padding-box,
+        var(--accent-nebula) border-box;
+    border: 1px solid transparent;
     padding: 40px;
     width: 90%;
     max-width: 400px;
     position: relative;
-    box-shadow: 0 0 50px rgba(157, 0, 255, 0.3);
+    box-shadow: 0 0 50px rgba(157, 0, 255, 0.2);
     border-radius: 30px;
-    /* Increased rounding */
 }
 
 .close-modal {
@@ -1031,8 +946,9 @@ footer {
 }
 
 .project-card {
-    background: #0b0d10;
-    border: 1px solid #1f2228;
+    background: linear-gradient(#0b0d10, #0b0d10) padding-box,
+        var(--accent-nebula) border-box;
+    border: 1px solid transparent;
     border-radius: 30px;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -1102,13 +1018,12 @@ footer {
 }
 
 .process-step {
-    background: var(--glass-bg);
+    background: linear-gradient(var(--glass-bg), var(--glass-bg)) padding-box,
+        var(--accent-nebula) border-box;
     backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
     padding: 60px 40px;
-    /* Increased padding */
+    border: 1px solid transparent;
     border-radius: 40px;
-    /* Softer corners */
     position: relative;
     transition: 0.4s;
     text-align: center;
@@ -1125,12 +1040,13 @@ footer {
 
 .step-number {
     font-family: 'Oswald', sans-serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 0, 255, 0.3);
+    -webkit-text-stroke: 1.5px var(--accent-gold);
     margin-bottom: 20px;
     line-height: 1;
+    opacity: 0.8;
 }
 
 .process-step h3 {
@@ -1153,7 +1069,7 @@ footer {
 .dashboard-section {
     padding-top: 100px;
     padding-bottom: 150px;
-    border-top: 1px solid rgba(255, 0, 255, 0.1);
+    border-top: 1px solid rgba(157, 0, 255, 0.1);
     /* Subtle glowing top line */
     background: linear-gradient(180deg, #020106 0%, #0b0d10 100%);
 }
@@ -1161,8 +1077,8 @@ footer {
 .section-divider {
     height: 1px;
     width: 100%;
-    background: linear-gradient(90deg, transparent, var(--accent-violet), transparent);
-    opacity: 0.3;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-purple), transparent);
+    opacity: 0.4;
     margin: 50px 0;
 }
 
@@ -1174,9 +1090,10 @@ footer {
 }
 
 .stat-card {
-    background: #0f1115;
+    background: linear-gradient(#0f1115, #0f1115) padding-box,
+        var(--accent-nebula) border-box;
     padding: 40px 20px;
-    border: 1px solid #1f2228;
+    border: 1px solid transparent;
     position: relative;
     overflow: hidden;
     border-radius: 30px;
@@ -1190,7 +1107,7 @@ footer {
 
 .stat-symbol {
     font-size: 2rem;
-    color: var(--accent-violet);
+    color: var(--accent-gold);
     font-family: 'Oswald', sans-serif;
 }
 
@@ -1217,7 +1134,7 @@ footer {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent-violet), var(--accent-secondary));
+    background: var(--accent-nebula);
     transform: scaleX(0);
     transition: 0.5s;
     transform-origin: left;
@@ -1251,7 +1168,7 @@ footer {
 .progress-fill {
     width: 33%;
     height: 100%;
-    background: var(--accent-violet);
+    background: var(--accent-nebula);
     transition: 0.3s;
 }
 
@@ -1297,8 +1214,9 @@ footer {
 }
 
 .wizard-card input:checked+.card-content {
-    border-color: var(--accent-violet);
-    background: rgba(0, 240, 255, 0.1);
+    background: linear-gradient(rgba(157, 0, 255, 0.1), rgba(255, 140, 0, 0.1)) padding-box,
+        var(--accent-nebula) border-box;
+    border-color: transparent;
 }
 
 .card-content .icon {
@@ -1379,15 +1297,15 @@ footer {
     position: absolute;
     width: 6px;
     height: 6px;
-    background: var(--accent-violet);
+    background: var(--accent-gold);
     border-radius: 50%;
-    box-shadow: 0 0 15px var(--accent-violet);
+    box-shadow: 0 0 15px var(--accent-gold);
     opacity: 0;
 }
 
 .line {
     position: absolute;
-    background: linear-gradient(90deg, transparent, var(--accent-violet), transparent);
+    background: var(--accent-nebula);
     height: 1px;
     opacity: 0;
     transform-origin: left;
@@ -1551,7 +1469,8 @@ footer {
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
-        filter: blur(0) drop-shadow(0 0 25px var(--accent-violet));
+        filter: blur(0) drop-shadow(0 0 35px var(--accent-gold));
+        /* Enhanced Amber Glow for Intro */
     }
 }
 

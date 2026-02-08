@@ -17,31 +17,30 @@
         display: flex !important;
         justify-content: center !important;
         z-index: 9999 !important;
+        transition: 0.4s !important;
     }
 
     .nav-links {
-        background: rgba(10, 5, 25, 0.95) !important;
-        border: 1px solid rgba(157, 0, 255, 0.3);
-        gap: 4px 10px;
-        /* Reduced gap */
-        padding: 8px 15px;
+        background: linear-gradient(rgba(10, 5, 25, 0.95), rgba(10, 5, 25, 0.95)) padding-box,
+            var(--accent-nebula) border-box !important;
+        border: 1px solid transparent !important;
+        gap: 6px 12px;
+        padding: 8px 18px;
         flex-wrap: wrap;
         justify-content: center;
         border-radius: 50px;
         /* Pill Shape */
         width: fit-content;
-        max-width: 98%;
-        /* Slightly wider allowance */
+        max-width: 95%;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(12px);
         pointer-events: auto !important;
     }
 
     .nav-links a {
-        font-size: 0.52rem;
-        /* Slighlty smaller to prevent overlapping */
+        font-size: 0.55rem;
         padding: 2px 0;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.5px;
         color: #fff !important;
         text-transform: uppercase;
     }
@@ -111,16 +110,10 @@
         height: 140px !important;
         min-width: 140px !important;
         min-height: 140px !important;
-        border-radius: 50px !important;
-        /* Matches PC border-radius exactly */
-        box-shadow: none !important;
-        border: 1px solid rgba(157, 0, 255, 0.2) !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        background: #000 !important;
-        /* Solid black base blocks glow from behind */
-        overflow: visible !important;
+        background: transparent !important;
         position: relative !important;
         animation: floatLogo 6s ease-in-out infinite !important;
         flex-shrink: 0 !important;
@@ -138,7 +131,7 @@
         border-radius: 50% !important;
         filter: blur(45px) !important;
         opacity: 0.6 !important;
-        background: radial-gradient(circle, var(--accent-violet) 0%, transparent 80%) !important;
+        background: radial-gradient(circle, var(--accent-gold) 0%, transparent 80%) !important;
         z-index: -1 !important;
         /* Strictly behind the black wrapper background */
         animation: pulseLogoGlow 4s ease-in-out infinite alternate !important;
@@ -148,11 +141,12 @@
         width: 140px !important;
         height: 140px !important;
         object-fit: contain !important;
-        mix-blend-mode: normal !important;
+        mix-blend-mode: screen !important;
         /* REVERT: No more tinting */
         position: relative !important;
         z-index: 5 !important;
         border-radius: 40px !important;
+        filter: hue-rotate(20deg) brightness(1.2) !important;
     }
 
     h1 {
@@ -225,9 +219,10 @@
         /* Slightly narrower */
         min-width: 260px !important;
         scroll-snap-align: center !important;
-        background: rgba(255, 255, 255, 0.04) !important;
+        background: linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)) padding-box,
+            var(--accent-nebula) border-box !important;
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid transparent !important;
         border-radius: 35px !important;
         /* Softer corners */
         padding: 45px 25px !important;
@@ -242,12 +237,12 @@
     }
 
     /* Regular Grid Cards (Stats & Calc) */
-    .stat-card,
-    .calc-option {
+    .stat-card {
         width: 100% !important;
-        background: rgba(255, 255, 255, 0.04) !important;
+        background: linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)) padding-box,
+            var(--accent-nebula) border-box !important;
         backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid transparent !important;
         border-radius: 15px !important;
         padding: 15px !important;
         display: flex !important;
@@ -258,16 +253,30 @@
         overflow: hidden !important;
     }
 
+    .calc-option {
+        width: 100% !important;
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .option-card {
+        padding: 25px !important;
+        border-radius: 20px !important;
+    }
+
     /* Portfolio Cards - Swipe Style */
     .project-card {
         flex: 0 0 85% !important;
         /* Wide peek effect */
         min-width: 85% !important;
         scroll-snap-align: center !important;
-        background: rgba(18, 10, 31, 0.8) !important;
-        /* Move to a more solid dark base */
+        background: linear-gradient(rgba(18, 10, 31, 0.8), rgba(18, 10, 31, 0.8)) padding-box,
+            var(--accent-nebula) border-box !important;
         backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid transparent !important;
         border-radius: 40px !important;
         /* Even softer for portfolio */
         overflow: hidden !important;
@@ -288,8 +297,8 @@
         text-align: left !important;
         flex-grow: 1 !important;
         /* Ensure it fills to bottom */
-        background: linear-gradient(180deg, rgba(157, 0, 255, 0.05) 0%, rgba(157, 0, 255, 0.1) 100%) !important;
-        /* Add subtle glow to bottom */
+        background: linear-gradient(180deg, rgba(255, 140, 0, 0.05) 0%, rgba(157, 0, 255, 0.1) 100%) !important;
+        /* Gold-to-Purple vertical glow */
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
@@ -342,14 +351,15 @@
     .service-item i {
         font-size: 1.5rem !important;
         margin-bottom: 15px !important;
-        color: var(--accent-violet);
+        color: var(--accent-gold);
     }
 
     .step-number {
-        font-size: 1.1rem !important;
-        font-weight: bold;
-        color: var(--accent-secondary);
+        font-size: 1.2rem !important;
+        font-weight: 800;
+        color: var(--accent-gold);
         margin-bottom: 12px !important;
+        text-transform: uppercase;
     }
 
     .option-card h4 {
@@ -360,10 +370,11 @@
     }
 
     .option-card .price {
-        font-size: 0.8rem !important;
+        font-size: 0.85rem !important;
         /* Larger for 2-col */
         margin-top: 5px !important;
-        font-weight: 700;
+        font-weight: 800;
+        color: var(--accent-gold);
     }
 
     .calc-result {
@@ -372,59 +383,16 @@
         padding: 30px !important;
     }
 
-    /* 5. AMBIENT GLOWS & BACKGROUND (Keep the galaxy feel but stay slim) */
-    #galaxy-bg,
-    .star-field,
-    .nebula-waves,
-    .galaxy-overlay {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 0.6 !important;
-        /* Enhanced for mobile */
-    }
 
-    #galaxy-bg {
-        background-size: cover !important;
-        /* Ensure it fills the screen */
-        opacity: 0.3 !important;
-        animation-duration: 180s !important;
-        /* Slower drift for mobile performance */
-    }
 
-    .star-field-near {
-        opacity: 0.8 !important;
-        /* Brighter stars */
-    }
-
-    body::before,
-    body::after {
-        content: '';
-        position: fixed !important;
-        width: 100vw !important;
-        height: 100vw !important;
-        filter: blur(80px) !important;
-        opacity: 0.25 !important;
-        pointer-events: none;
-        z-index: -1;
-    }
-
-    body::after {
-        top: -10% !important;
-        left: -10% !important;
-    }
-
-    body::before {
-        bottom: -10% !important;
-        right: -10% !important;
-    }
-
-    /* Health Check Widget */
     .health-check-widget {
         width: 100%;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.05) !important;
-        border-radius: 15px;
-        border: 1px solid rgba(157, 0, 255, 0.3);
+        padding: 35px 25px !important;
+        background: linear-gradient(rgba(15, 17, 21, 0.9), rgba(15, 17, 21, 0.9)) padding-box,
+            var(--accent-nebula) border-box !important;
+        border-radius: 30px !important;
+        border: 1px solid transparent !important;
+        margin: 60px auto !important;
     }
 
 
@@ -435,31 +403,4 @@
         background: #000 !important;
     }
 
-    /* 6. CONTACT FORM MOBILE FIX (Zero Overflow) */
-    .contact-form {
-        padding: 40px 20px !important;
-        /* Narrower padding */
-        border-radius: 40px !important;
-    }
-
-    .form-row {
-        display: flex !important;
-        flex-direction: column !important;
-        /* Stack fields! */
-        gap: 20px !important;
-        margin-bottom: 20px !important;
-    }
-
-    .form-group label {
-        font-size: 0.8rem !important;
-        margin-bottom: 8px !important;
-    }
-
-    input,
-    select,
-    textarea {
-        width: 100% !important;
-        padding: 12px !important;
-        font-size: 0.9rem !important;
-    }
 }

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="description" content="NexTech Agency. Constructing premium digital assets and turnkey websites.">
     <title>NexTech | Digital Asset Agency</title>
 
@@ -35,15 +36,15 @@
         </div>
     </div>
 
-    <div id="galaxy-bg"></div>
-    <div class="galaxy-overlay"></div>
-    <div class="nebula-waves">
-        <div class="wave wave-1"></div>
-        <div class="wave wave-2"></div>
-        <div class="wave wave-3"></div>
-    </div>
-    <div class="star-field star-field-far"></div>
-    <div class="star-field star-field-near"></div>
+    <!-- Cinematic Background Video (Dual-Video Seamless Loop) -->
+    <video id="bg-video-1" class="bg-video active" autoplay muted playsinline poster="assets/galaxy_bg.jpg">
+        <source src="https://res.cloudinary.com/df7jn00ao/video/upload/v1770575093/background_zhlzll.mp4"
+            type="video/mp4">
+    </video>
+    <video id="bg-video-2" class="bg-video" muted playsinline poster="assets/galaxy_bg.jpg">
+        <source src="https://res.cloudinary.com/df7jn00ao/video/upload/v1770575093/background_zhlzll.mp4"
+            type="video/mp4">
+    </video>
 
     <!-- Navigation -->
     <nav>
@@ -109,35 +110,21 @@
         </div>
     </section>
 
-    <!-- Agency Dashboard -->
-    <section class="section bg-dark dashboard-section">
-        <div class="section-header">
-            <h2 class="section-title">AGENCY DASHBOARD</h2>
-            <p style="color: #888; margin-bottom: 80px;">Real-time performance and client success metrics.</p>
-        </div>
-        <div class="dashboard-grid">
-            <div class="stat-card">
-                <h3 class="stat-number" data-target="99.9">0</h3><span class="stat-symbol">%</span>
-                <p>Website Uptime</p>
-                <p class="stat-detail">Reliable hosting infrastructure.</p>
+    <!-- Health Check Section -->
+    <section class="section">
+        <div class="health-check-widget reveal">
+            <h4 style="color: var(--accent-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                Free Website Analysis</h4>
+            <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-direction: column;">
+                <input type="text" placeholder="www.yourcompany.com" style="width: 100%;">
+                <input type="tel" placeholder="Phone Number (e.g. +962...)" style="width: 100%;">
+                <button class="btn-primary" style="width: 100%; border-radius: 10px;">Analyze</button>
             </div>
-            <div class="stat-card">
-                <h3 class="stat-number" data-target="25">0</h3><span class="stat-symbol">k+</span>
-                <p>Lines of Code Written</p>
-                <p class="stat-detail">Custom engineered solutions.</p>
-            </div>
-            <div class="stat-card">
-                <h3 class="stat-number" data-target="12">0</h3>
-                <p>Happy Clients</p>
-                <p class="stat-detail">Rising success stories.</p>
-            </div>
-            <div class="stat-card">
-                <h3 class="stat-number" data-target="24">0</h3><span class="stat-symbol">/7</span>
-                <p>System Monitoring</p>
-                <p class="stat-detail">Always watching, always secure.</p>
-            </div>
+            <p style="color: #888; font-size: 0.85rem;">Get a diagnostic report on SEO, speed, and mobile readiness.</p>
         </div>
     </section>
+
+    <!-- Agency Dashboard -->
 
     <!-- Services Section -->
     <section id="services" class="section">
@@ -242,7 +229,7 @@
                 <div class="total-price">
                     <span id="totalSetup">0</span> JOD <span class="setup-label">(Setup)</span>
                     <div id="monthlyWrapper"
-                        style="display:none; margin-top: 10px; font-size: 1.2rem; color: var(--accent-violet);">
+                        style="display:none; margin-top: 10px; font-size: 1.2rem; color: var(--accent-gold);">
                         + <span id="totalMonthly">0</span> JOD / Month
                     </div>
                 </div>

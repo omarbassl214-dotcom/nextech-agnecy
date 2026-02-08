@@ -228,64 +228,74 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, revealOptions);
 
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // 2. 3D Tilt Interaction
-    const tiltCards = document.querySelectorAll('.tilt-card');
-    tiltCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-        });
-    });
-
-    // 3. Deep Space Parallax & Sticky Nav
+    // --- Dynamic Navigation Logic ---
     const nav = document.querySelector('nav');
-    let lastScroll = 0;
+    let lastScrollY = window.scrollY;
 
     window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        const currentScrollY = window.scrollY;
 
-        // Sticky Nav Effect
-        if (nav) {
-            // Scroll direction logic
-            if (scrolled > lastScroll && scrolled > 100) {
-                // Scrolling Down - Hide Nav
-                nav.classList.add('nav-hidden');
-            } else {
-                // Scrolling Up - Show Nav
-                nav.classList.remove('nav-hidden');
-            }
-
-            if (scrolled > 50) {
-                nav.classList.add('nav-scrolled');
-            } else {
-                nav.classList.remove('nav-scrolled');
-            }
+        // 1. Sticky/Scrolled State (Visual)
+        if (currentScrollY > 50) {
+            nav.classList.add('nav-scrolled');
+        } else {
+            nav.classList.remove('nav-scrolled');
         }
 
-        lastScroll = scrolled <= 0 ? 0 : scrolled; // For Mobile or negative scrolling
-
-        // Background moves slower
-        const galaxyBg = document.getElementById('galaxy-bg');
-        if (galaxyBg) {
-            galaxyBg.style.transform = `rotate(${10 + scrolled * 0.05}deg) scale(${1.1 + scrolled * 0.0001}) translateY(${scrolled * 0.2}px)`;
+        // 2. Hide/Show Logic (Smart Nav)
+        if (currentScrollY > lastScrollY && currentScrollY > 200) {
+            // Scrolling Down - Hide
+            nav.classList.add('nav-hidden');
+        } else {
+            // Scrolling Up or at Top - Show
+            nav.classList.remove('nav-hidden');
         }
+
+        lastScrollY = currentScrollY;
     });
 
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
+}); // End of DOMContentLoaded
+
+// --- Seamless Dual-Video Background Loop ---
+document.addEventListener('DOMContentLoaded', () => {
+    const v1 = document.getElementById('bg-video-1');
+    const v2 = document.getElementById('bg-video-2');
+
+    if (!v1 || !v2) return;
+
+    let activeVideo = v1;
+    let idleVideo = v2;
+    const fadePoint = 2; // Start fade 2 seconds before end
+
+    function checkLoop() {
+        // When active video is near end
+        if (activeVideo.currentTime > activeVideo.duration - fadePoint) {
+            // Start idle video
+            idleVideo.currentTime = 0;
+            idleVideo.play();
+
+            // Swap classes for crossfade
+            activeVideo.classList.remove('active');
+            idleVideo.classList.add('active');
+
+            // Re-assign references
+            [activeVideo, idleVideo] = [idleVideo, activeVideo];
+
+            // Wait for transition, then pause previous video
+            setTimeout(() => {
+                idleVideo.pause();
+            }, 1500);
+        }
+    }
+
+    // Check frequently
+    setInterval(checkLoop, 500);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
     // --- Data Transfer: Estimator to Contact Form ---
     const lockQuoteBtn = document.getElementById('lockQuoteBtn');
     const contactMessage = document.getElementById('contactMessage');
