@@ -59,9 +59,9 @@
         background: transparent !important;
     }
 
-    /* Base background removed to reveal video */
+    /* Restore dark canvas behind semi-transparent video */
     html {
-        background: transparent !important;
+        background: #020106 !important;
     }
 
     /* Force all sections to be visible, relative, and stacked */
@@ -93,8 +93,8 @@
     }
 
     .bg-video.active {
-        opacity: 0.4 !important;
-        /* Desired mobile opacity */
+        opacity: 0.7 !important;
+        /* Slightly higher for mobile vibrance */
         visibility: visible !important;
     }
 
