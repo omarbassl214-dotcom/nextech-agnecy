@@ -352,17 +352,14 @@ nav {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    /* Ensure horizontal center */
-    padding: 220px 5% 0 5%;
-    /* Increased space for top nav and floating logo */
+    justify-content: flex-start;
+    /* Changed from center to avoid pushing content up into nav */
+    padding: 280px 5% 0 5%;
+    /* Increased top clearance for floating logo */
     position: relative;
     background: transparent;
-    /* Reveal Starfield */
     text-align: center;
-    /* Center text content */
     flex-direction: column;
-    /* Stack logo and text */
 }
 
 .logo-glow-wrapper {
@@ -743,7 +740,7 @@ footer {
         var(--accent-nebula) border-box;
     padding: 40px;
     border: 1px solid transparent;
-    display: inline-block;
+    display: block;
     backdrop-filter: var(--glass-blur);
     width: 100%;
     max-width: 550px;
