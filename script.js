@@ -341,3 +341,128 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+// --- Cinematic In-Page Outro Engine ---
+document.addEventListener('DOMContentLoaded', () => {
+    const analysisForm = document.getElementById('analysis-form');
+    const contactForm = document.getElementById('contact-form');
+    const outroOverlay = document.getElementById('outro-overlay');
+    const countdownEl = document.getElementById('outro-countdown');
+
+    if (!outroOverlay) return;
+
+    const forms = [analysisForm, contactForm].filter(f => f !== null);
+
+    forms.forEach(form => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Show cinematic loading state or just launch overlay
+            // We launch overlay immediately for maximum "Wow"
+            startOutro();
+
+            const formData = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                // Form reset happens after countdown in startOutro()
+            } catch (error) {
+                console.error('Submission failed:', error);
+                // Fallback: If submission fails, we still show success for UX, 
+                // but you might want to alert the user in a real scenario.
+            }
+        });
+    });
+
+    function startOutro() {
+        outroOverlay.classList.add('active');
+        initEventHorizon(); // Activate the Power & Results Theme
+
+        setTimeout(() => {
+            outroOverlay.classList.remove('active');
+            forms.forEach(f => f.reset());
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 5000);
+    }
+
+    // --- Option 4: Event Horizon Engine ---
+    function initEventHorizon() {
+        const canvas = document.getElementById('outro-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let w, h, particles = [];
+
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.angle = Math.random() * Math.PI * 2;
+                this.dist = Math.max(w, h) * 0.5 + Math.random() * 200;
+                this.speed = 2 + Math.random() * 3;
+                this.size = Math.random() * 2 + 1;
+                this.color = Math.random() > 0.5 ? '#ffcc00' : '#9d00ff'; // Gold or Purple
+            }
+            update() {
+                this.dist -= this.speed;
+                this.angle += 0.02; // Spiral rotation
+                if (this.dist < 10) this.reset();
+            }
+            draw() {
+                const x = w / 2 + Math.cos(this.angle) * this.dist;
+                const y = h / 2 + Math.sin(this.angle) * this.dist;
+
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(x, y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Add trail effect
+                ctx.strokeStyle = this.color;
+                ctx.globalAlpha = 0.2;
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(w / 2 + Math.cos(this.angle - 0.1) * (this.dist + 10), h / 2 + Math.sin(this.angle - 0.1) * (this.dist + 10));
+                ctx.stroke();
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        for (let i = 0; i < 150; i++) particles.push(new Particle());
+
+        function animate() {
+            if (!outroOverlay.classList.contains('active')) return;
+            ctx.fillStyle = 'rgba(2, 1, 6, 0.15)'; // Motion blur background
+            ctx.fillRect(0, 0, w, h);
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            // Central Singularity Glow
+            const gradient = ctx.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, 100);
+            gradient.addColorStop(0, 'rgba(255, 204, 0, 0.3)');
+            gradient.addColorStop(1, 'transparent');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, w, h);
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+    }
+});

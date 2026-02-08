@@ -1476,3 +1476,112 @@ footer {
 body.intro-active {
     overflow: hidden;
 }
+
+/* Outro Overlay Styles */
+.outro-overlay-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #020106;
+    /* Solid dark for Constellation contrast */
+    z-index: 20000;
+    display: none;
+    /* Controlled by JS */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    transition: opacity 1.8s ease, backdrop-filter 1.8s ease;
+}
+
+.outro-overlay-container.active {
+    display: flex;
+    opacity: 1;
+    backdrop-filter: blur(10px);
+}
+
+#outro-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.outro-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 550px;
+    width: 90%;
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+    transform: scale(0.95) translateY(30px);
+    opacity: 0;
+    transition: all 1.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.outro-overlay-container.active .outro-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.outro-logo {
+    width: 120px;
+    height: 120px;
+    background: #000 url('assets/logo.png') no-repeat center/contain;
+    margin: 0 auto 30px;
+    border-radius: 24px;
+    /* Soft edges */
+    overflow: hidden;
+    filter: drop-shadow(0 0 15px var(--accent-gold));
+    animation: eventHorizonPulse 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes eventHorizonPulse {
+    0% {
+        filter: drop-shadow(0 0 10px var(--accent-gold));
+        transform: scale(1);
+    }
+
+    100% {
+        filter: drop-shadow(0 0 50px var(--accent-gold)) brightness(1.2);
+        transform: scale(1.1);
+    }
+}
+
+.outro-content h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    background: var(--accent-nebula);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.outro-content p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.redirect-text {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 40px;
+    letter-spacing: 1px;
+}
+
+.redirect-text span {
+    color: var(--accent-gold);
+}
