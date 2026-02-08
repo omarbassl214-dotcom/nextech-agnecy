@@ -78,11 +78,16 @@
         <div class="health-check-widget reveal">
             <h4 style="color: var(--accent-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
                 Free Website Analysis</h4>
-            <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-direction: column;">
-                <input type="text" placeholder="www.yourcompany.com" style="width: 100%;">
-                <input type="tel" placeholder="Phone Number (e.g. +962...)" style="width: 100%;">
-                <button class="btn-primary" style="width: 100%; border-radius: 12px; padding: 15px;">Analyze</button>
-            </div>
+            <form action="https://api.web3forms.com/submit" method="POST"
+                style="display: flex; gap: 15px; margin-bottom: 20px; flex-direction: column;">
+                <input type="hidden" name="access_key" value="2451fbd9-88a6-4ab6-aae5-9e8270225a3b">
+                <input type="hidden" name="subject" value="New Website Analysis Lead">
+                <input type="text" name="website_url" placeholder="www.yourcompany.com" style="width: 100%;" required>
+                <input type="tel" name="phone_number" placeholder="Phone Number (e.g. +962...)" style="width: 100%;"
+                    required>
+                <button type="submit" class="btn-primary"
+                    style="width: 100%; border-radius: 12px; padding: 15px;">Analyze</button>
+            </form>
             <p style="color: #888; font-size: 0.85rem;">Get a diagnostic report on SEO, speed, and mobile readiness.</p>
         </div>
     </section>
